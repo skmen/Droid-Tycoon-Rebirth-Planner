@@ -320,6 +320,8 @@ export default function App() {
                     )}
                   </div>
 
+                  <hr style={{ border: 'none', borderTop: `1px solid ${theme.rowBorder}`, margin: '0 0 14px' }} />
+
                   {isMobile ? (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, padding: '0 0 4px' }}>
