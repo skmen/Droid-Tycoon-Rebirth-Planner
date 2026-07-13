@@ -245,57 +245,54 @@ export default function App() {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 18, alignItems: 'flex-start' }}>
           <div style={{ flex: '2 1 520px', display: 'flex', flexDirection: 'column', gap: 18, minWidth: 0 }}>
             <div style={{ background: theme.cardBg, borderRadius: 16, padding: '18px 20px' }}>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, alignItems: 'flex-end' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                  <label style={{ fontSize: 12, fontWeight: 600, color: theme.textSecondary }}>Current rebirth level</label>
-                  <input
-                    type="number"
-                    min="0"
-                    max="27"
-                    value={rebirthInput}
-                    onChange={(e) => {
-                      setRebirthInput(e.target.value);
-                      setRebirth(clampRebirth(e.target.value));
-                    }}
-                    onBlur={() => setRebirthInput(String(rebirth))}
-                    style={{
-                      width: 100,
-                      padding: '9px 12px',
-                      borderRadius: 9,
-                      border: `1px solid ${theme.border}`,
-                      fontSize: 16,
-                      fontWeight: 700,
-                      fontFamily: "'JetBrains Mono',monospace",
-                      color: theme.text,
-                      background: theme.inputBg,
-                    }}
-                  />
-                </div>
-                <div style={{ display: 'flex', gap: 6 }}>
-                  {[1, 2, 3, 4].map((n) => (
-                    <button
-                      key={n}
-                      onClick={() => setCycle(n)}
-                      style={{
-                        padding: '9px 15px',
-                        borderRadius: 9,
-                        border: `1px solid ${n === cycle ? theme.accent : theme.pillBorder}`,
-                        background: n === cycle ? theme.accent : theme.pillBg,
-                        color: n === cycle ? '#fff' : theme.text,
-                        fontWeight: 700,
-                        fontSize: 13,
-                        cursor: 'pointer',
-                      }}
-                    >
-                      Cycle {n}
-                    </button>
-                  ))}
-                </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <label style={{ fontSize: 12, fontWeight: 600, color: theme.textSecondary }}>Current rebirth level</label>
+                <input
+                  type="number"
+                  min="0"
+                  max="27"
+                  value={rebirthInput}
+                  onChange={(e) => {
+                    setRebirthInput(e.target.value);
+                    setRebirth(clampRebirth(e.target.value));
+                  }}
+                  onBlur={() => setRebirthInput(String(rebirth))}
+                  style={{
+                    width: 100,
+                    padding: '9px 12px',
+                    borderRadius: 9,
+                    border: `1px solid ${theme.border}`,
+                    fontSize: 16,
+                    fontWeight: 700,
+                    fontFamily: "'JetBrains Mono',monospace",
+                    color: theme.text,
+                    background: theme.inputBg,
+                  }}
+                />
               </div>
             </div>
 
             <div style={{ background: theme.cardBg, borderRadius: 16, padding: '18px 20px' }}>
-              <p style={{ margin: '0 0 12px', fontSize: 12, color: theme.textMuted }}>Cycle {cycle}</p>
+              <div style={{ display: 'flex', gap: 6, marginBottom: 14 }}>
+                {[1, 2, 3, 4].map((n) => (
+                  <button
+                    key={n}
+                    onClick={() => setCycle(n)}
+                    style={{
+                      padding: '9px 15px',
+                      borderRadius: 9,
+                      border: `1px solid ${n === cycle ? theme.accent : theme.pillBorder}`,
+                      background: n === cycle ? theme.accent : theme.pillBg,
+                      color: n === cycle ? '#fff' : theme.text,
+                      fontWeight: 700,
+                      fontSize: 13,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Cycle {n}
+                  </button>
+                ))}
+              </div>
 
               {isMaxed && (
                 <div style={{ fontSize: 14, fontWeight: 700, color: theme.accent, background: theme.accentSoftBg, borderRadius: 12, padding: '14px 16px' }}>
@@ -325,6 +322,10 @@ export default function App() {
 
                   {isMobile ? (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, padding: '0 0 4px' }}>
+                        <span style={{ fontSize: 11, fontWeight: 700, color: theme.textMuted, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Droid</span>
+                        <span style={{ fontSize: 11, fontWeight: 700, color: theme.textMuted, textTransform: 'uppercase', letterSpacing: '0.05em' }}>After rebirth</span>
+                      </div>
                       {nextDroids.map((d, i) => (
                         <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 6, padding: '8px 0', borderBottom: `1px solid ${theme.rowBorder}` }}>
                           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
