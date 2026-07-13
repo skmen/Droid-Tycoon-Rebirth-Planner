@@ -1,0 +1,787 @@
+{
+  "cycles": [
+    [
+      {
+        "step": 1,
+        "credits": "10K",
+        "unlocks": "WORKER SLOT",
+        "raw": "BASE CB BASE PIT BASE DRK-1 PROBE"
+      },
+      {
+        "step": 2,
+        "credits": "150K",
+        "unlocks": "ASTROMECH SLOT",
+        "raw": "BASE BDX EXPLORER BASE 2BB BASE BAL-CORE"
+      },
+      {
+        "step": 3,
+        "credits": "975K",
+        "unlocks": "BATTLE SLOT",
+        "raw": "BASE A-LT BASE BU-4D GOLD R9"
+      },
+      {
+        "step": 4,
+        "credits": "2.95M",
+        "unlocks": "WORKER SLOT",
+        "raw": "GOLD ARG GOLD B1 SECURITY BASE GROUNDMECH"
+      },
+      {
+        "step": 5,
+        "credits": "5.35M",
+        "unlocks": "ASTROMECH SLOT",
+        "raw": "GOLD BU-4D GOLD HOV-R DIAMOND R9"
+      },
+      {
+        "step": 6,
+        "credits": "9.85M",
+        "unlocks": "BATTLE SLOT",
+        "raw": "DIAMOND A-LT DIAMOND ARG GOLD GROUNDMECH"
+      },
+      {
+        "step": 7,
+        "credits": "14.5M",
+        "unlocks": "WORKER SLOT",
+        "raw": "DIAMOND BU-4D DIAMOND B1 SECURITY GOLD BB"
+      },
+      {
+        "step": 8,
+        "credits": "36M",
+        "unlocks": "ASTROMECH SLOT",
+        "raw": "DIAMOND HOV-R GOLD LO GOLD UTIL-TEC"
+      },
+      {
+        "step": 9,
+        "credits": "89M",
+        "unlocks": "BATTLE SLOT",
+        "raw": "GOLD TRAK-R GOLD R6 RAINBOW GROUNDMECH"
+      },
+      {
+        "step": 10,
+        "credits": "220M",
+        "unlocks": "WORKER SLOT",
+        "raw": "GOLD STRIKE-ORB RAINBOW HAUL-R RAINBOW LO"
+      },
+      {
+        "step": 11,
+        "credits": "550M",
+        "unlocks": "ASTROMECH SLOT",
+        "raw": "RAINBOW AMP WALKER RAINBOW B1 HEAVY BASE BB9"
+      },
+      {
+        "step": 12,
+        "credits": "1.36B",
+        "unlocks": "WORKER SLOT",
+        "raw": "GOLD PROTO-ROLLER BASE MECHA-DROID BASE MONO-WLKR"
+      },
+      {
+        "step": 13,
+        "credits": "3.40B",
+        "unlocks": "ASTROMECH SLOT",
+        "raw": "BASE R7 BASE CYCLO-GRAV BASE B2-RP"
+      },
+      {
+        "step": 14,
+        "credits": "8.45B",
+        "unlocks": "WORKER SLOT",
+        "raw": "BASE OPTI-STRK GOLD MONO-WLKR GOLD MECHA-DROID"
+      },
+      {
+        "step": 15,
+        "credits": "21.00B",
+        "unlocks": "ASTROMECH SLOT",
+        "raw": "GOLD B2-RP GOLD BB9 GOLD R7"
+      },
+      {
+        "step": 16,
+        "credits": "52.00B",
+        "unlocks": "WORKER SLOT",
+        "raw": "GOLD OPTI-STRK DIAMOND MONO-WLKR DIAMOND PROTO-ROLLER"
+      },
+      {
+        "step": 17,
+        "credits": "130.00B",
+        "unlocks": "LOUNGE SLOT",
+        "raw": "DIAMOND B2-RP DIAMOND CYCLO-GRAV DIAMOND MECHA-DROID"
+      },
+      {
+        "step": 18,
+        "credits": "325.00B",
+        "unlocks": "LOUNGE SLOT",
+        "raw": "DIAMOND BB9 DIAMOND R7 RAINBOW MONO-WLKR"
+      },
+      {
+        "step": 19,
+        "credits": "810.00B",
+        "unlocks": "LOUNGE SLOT",
+        "raw": "RAINBOW B2-RP RAINBOW CYCLO-GRAV RAINBOW PROTO-ROLLER"
+      },
+      {
+        "step": 20,
+        "credits": "2.00T",
+        "unlocks": "LOUNGE SLOT",
+        "raw": "RAINBOW R7 RAINBOW OPTI-STRK RAINBOW MECHA-DROID"
+      },
+      {
+        "step": 21,
+        "credits": "3.00T",
+        "unlocks": "",
+        "raw": "BESKAR BB BESKAR ORB-WALKER BESKAR GROUNDMECH"
+      },
+      {
+        "step": 22,
+        "credits": "4.50T",
+        "unlocks": "",
+        "raw": "BESKAR AMP WALKER BESKAR B1 HEAVY BESKAR PROTO-ROLLER"
+      },
+      {
+        "step": 23,
+        "credits": "6.00T",
+        "unlocks": "",
+        "raw": "BESKAR OPTI-STRK BESKAR MONO-WLKR BESKAR R7"
+      },
+      {
+        "step": 24,
+        "credits": "9.00T",
+        "unlocks": "",
+        "raw": "BESKAR BB9 BESKAR CYCLO-GRAV BASE MO-TRAK"
+      },
+      {
+        "step": 25,
+        "credits": "13.50T",
+        "unlocks": "",
+        "raw": "BESKAR B2-RP BASE IG GOLD DRFT-R"
+      },
+      {
+        "step": 26,
+        "credits": "21.00T",
+        "unlocks": "",
+        "raw": "GOLD CYCLENS DIAMOND LOADLIFTER RAINBOW RIC-1200"
+      },
+      {
+        "step": 27,
+        "credits": "32.00T",
+        "unlocks": "",
+        "raw": "DIAMOND KX RAINBOW TRI-TEK BESKAR SNOW MOUSE"
+      }
+    ],
+    [
+      {
+        "step": 1,
+        "credits": "10K",
+        "unlocks": "",
+        "raw": "BASE ID10 BASE MOUSE BASE GONK"
+      },
+      {
+        "step": 2,
+        "credits": "150K",
+        "unlocks": "",
+        "raw": "BASE ROLL-R BASE SENATE HOVERCAM BASE NAV-EX"
+      },
+      {
+        "step": 3,
+        "credits": "975K",
+        "unlocks": "",
+        "raw": "BASE R4 BASE VECT-ARM GOLD BDX EXPLORER"
+      },
+      {
+        "step": 4,
+        "credits": "2.95M",
+        "unlocks": "",
+        "raw": "GOLD 2BB GOLD BAL-CORE BASE ORB-WALKER"
+      },
+      {
+        "step": 5,
+        "credits": "5.35M",
+        "unlocks": "",
+        "raw": "GOLD R4 GOLD VECT-ARM GOLD NAV-EX"
+      },
+      {
+        "step": 6,
+        "credits": "9.85M",
+        "unlocks": "",
+        "raw": "BASE GUNRUNNER DIAMOND 2BB DIAMOND BAL-CORE"
+      },
+      {
+        "step": 7,
+        "credits": "14.5M",
+        "unlocks": "",
+        "raw": "DIAMOND ROLL-R DIAMOND BDX EXPLORER GOLD R2"
+      },
+      {
+        "step": 8,
+        "credits": "36M",
+        "unlocks": "",
+        "raw": "DIAMOND R4 GOLD B2 SUPER GOLD GUNRUNNER"
+      },
+      {
+        "step": 9,
+        "credits": "89M",
+        "unlocks": "",
+        "raw": "RAINBOW NAV-EX GOLD STRIKE-ORB GOLD AMP WALKER"
+      },
+      {
+        "step": 10,
+        "credits": "220M",
+        "unlocks": "",
+        "raw": "RAINBOW VECT-ARM DIAMOND R2 DIAMOND B2 SUPER"
+      },
+      {
+        "step": 11,
+        "credits": "550M",
+        "unlocks": "",
+        "raw": "DIAMOND STRIKE-ORB DIAMOND B2 HEAVY RAINBOW BAL-CORE"
+      },
+      {
+        "step": 12,
+        "credits": "1.36B",
+        "unlocks": "",
+        "raw": "RAINBOW ORB-WALKER RAINBOW R2 BASE BB9"
+      },
+      {
+        "step": 13,
+        "credits": "3.40B",
+        "unlocks": "",
+        "raw": "RAINBOW B2 SUPER BASE MECHA-DROID BASE PROTO-ROLLER"
+      },
+      {
+        "step": 14,
+        "credits": "8.45B",
+        "unlocks": "",
+        "raw": "RAINBOW B2 HEAVY BASE B2-RP GOLD R7"
+      },
+      {
+        "step": 15,
+        "credits": "21.00B",
+        "unlocks": "",
+        "raw": "RAINBOW STRIKE-ORB GOLD BB9 GOLD PROTO-ROLLER"
+      },
+      {
+        "step": 16,
+        "credits": "52.00B",
+        "unlocks": "",
+        "raw": "RAINBOW AMP WALKER GOLD MECHA-DROID DIAMOND B2-RP"
+      },
+      {
+        "step": 17,
+        "credits": "130.00B",
+        "unlocks": "",
+        "raw": "RAINBOW OPTI-POD GOLD MONO-WLKR DIAMOND R7"
+      },
+      {
+        "step": 18,
+        "credits": "325.00B",
+        "unlocks": "",
+        "raw": "RAINBOW UTIL-TEC DIAMOND BB9 DIAMOND PROTO-ROLLER"
+      },
+      {
+        "step": 19,
+        "credits": "810.00B",
+        "unlocks": "",
+        "raw": "DIAMOND MECHA-DROID RAINBOW R7 RAINBOW B2-RP"
+      },
+      {
+        "step": 20,
+        "credits": "2.00T",
+        "unlocks": "",
+        "raw": "RAINBOW MONO-WLKR RAINBOW OPTI-STRK RAINBOW CYCLO-GRAV"
+      },
+      {
+        "step": 21,
+        "credits": "3.00T",
+        "unlocks": "",
+        "raw": "BESKAR LO BESKAR R6 BESKAR HAUL-R"
+      },
+      {
+        "step": 22,
+        "credits": "4.50T",
+        "unlocks": "",
+        "raw": "BESKAR SEN-TRI BESKAR STRIKE-ORB BESKAR PROTO-ROLLER"
+      },
+      {
+        "step": 23,
+        "credits": "6.00T",
+        "unlocks": "",
+        "raw": "BESKAR BB9 BESKAR CYCLO-GRAV BESKAR B2-RP"
+      },
+      {
+        "step": 24,
+        "credits": "9.00T",
+        "unlocks": "",
+        "raw": "BESKAR OPTI-STRK BESKAR B2-RP BASE SNOW MOUSE"
+      },
+      {
+        "step": 25,
+        "credits": "13.50T",
+        "unlocks": "",
+        "raw": "BESKAR MONO-WLKR GOLD TRI-TEK BASE RIC-1200"
+      },
+      {
+        "step": 26,
+        "credits": "21.00T",
+        "unlocks": "",
+        "raw": "GOLD KX DIAMOND DRFT-R RAINBOW IG"
+      },
+      {
+        "step": 27,
+        "credits": "32.00T",
+        "unlocks": "",
+        "raw": "DIAMOND LEP RAINBOW LOADLIFTER BESKAR MO-TRAK"
+      }
+    ],
+    [
+      {
+        "step": 1,
+        "credits": "10K",
+        "unlocks": "",
+        "raw": "BASE MOUSE BASE PIT BASE GONK"
+      },
+      {
+        "step": 2,
+        "credits": "150K",
+        "unlocks": "",
+        "raw": "BASE R3 BASE 2BB BASE SENATE HOVERCAM"
+      },
+      {
+        "step": 3,
+        "credits": "975K",
+        "unlocks": "",
+        "raw": "BASE R8 BASE R5 BASE R4"
+      },
+      {
+        "step": 4,
+        "credits": "2.95M",
+        "unlocks": "",
+        "raw": "GOLD B1 BATTLE GOLD R9 GOLD B1 SECURITY"
+      },
+      {
+        "step": 5,
+        "credits": "5.35M",
+        "unlocks": "",
+        "raw": "GOLD R3 GOLD 2BB GOLD SENATE HOVERCAM"
+      },
+      {
+        "step": 6,
+        "credits": "9.85M",
+        "unlocks": "",
+        "raw": "DIAMOND R5 DIAMOND R4 DIAMOND BDX EXPLORER"
+      },
+      {
+        "step": 7,
+        "credits": "14.5M",
+        "unlocks": "",
+        "raw": "DIAMOND R8 DIAMOND B1 BATTLE DIAMOND R9"
+      },
+      {
+        "step": 8,
+        "credits": "36M",
+        "unlocks": "",
+        "raw": "RAINBOW R3 RAINBOW B1 SECURITY RAINBOW 2BB"
+      },
+      {
+        "step": 9,
+        "credits": "89M",
+        "unlocks": "",
+        "raw": "RAINBOW R5 RAINBOW R4 RAINBOW BDX EXPLORER"
+      },
+      {
+        "step": 10,
+        "credits": "220M",
+        "unlocks": "",
+        "raw": "RAINBOW SENATE HOVERCAM BASE GROUNDMECH BASE TRAK-R"
+      },
+      {
+        "step": 11,
+        "credits": "550M",
+        "unlocks": "",
+        "raw": "BASE B2 HEAVY BASE B2 SUPER BASE UTIL-TEC"
+      },
+      {
+        "step": 12,
+        "credits": "1.36B",
+        "unlocks": "",
+        "raw": "RAINBOW BAL-CORE GOLD GROUNDMECH GOLD TRAK-R"
+      },
+      {
+        "step": 13,
+        "credits": "3.40B",
+        "unlocks": "",
+        "raw": "RAINBOW B2 SUPER BASE MECHA-DROID BASE PROTO-ROLLER"
+      },
+      {
+        "step": 14,
+        "credits": "8.45B",
+        "unlocks": "",
+        "raw": "RAINBOW B2 HEAVY BASE B2-RP GOLD R7"
+      },
+      {
+        "step": 15,
+        "credits": "21.00B",
+        "unlocks": "",
+        "raw": "RAINBOW STRIKE-ORB GOLD BB9 GOLD PROTO-ROLLER"
+      },
+      {
+        "step": 16,
+        "credits": "52.00B",
+        "unlocks": "",
+        "raw": "RAINBOW AMP WALKER GOLD MECHA-DROID DIAMOND B2-RP"
+      },
+      {
+        "step": 17,
+        "credits": "130.00B",
+        "unlocks": "",
+        "raw": "RAINBOW OPTI-POD GOLD MONO-WLKR DIAMOND R7"
+      },
+      {
+        "step": 18,
+        "credits": "325.00B",
+        "unlocks": "",
+        "raw": "RAINBOW UTIL-TEC DIAMOND BB9 DIAMOND PROTO-ROLLER"
+      },
+      {
+        "step": 19,
+        "credits": "810.00B",
+        "unlocks": "",
+        "raw": "DIAMOND MECHA-DROID RAINBOW R7 RAINBOW B2-RP"
+      },
+      {
+        "step": 20,
+        "credits": "2.00T",
+        "unlocks": "",
+        "raw": "RAINBOW MONO-WLKR RAINBOW OPTI-STRK RAINBOW CYCLO-GRAV"
+      },
+      {
+        "step": 21,
+        "credits": "3.00T",
+        "unlocks": "",
+        "raw": "BESKAR B2 SUPER BESKAR OPTI-POD BESKAR R2"
+      },
+      {
+        "step": 22,
+        "credits": "4.50T",
+        "unlocks": "",
+        "raw": "BESKAR GUNRUNNER BESKAR LNG-SHOT BESKAR B2-RP"
+      },
+      {
+        "step": 23,
+        "credits": "6.00T",
+        "unlocks": "",
+        "raw": "BESKAR MONO-WLKR BESKAR CYCLO-GRAV BESKAR MECHA-DROID"
+      },
+      {
+        "step": 24,
+        "credits": "9.00T",
+        "unlocks": "",
+        "raw": "BESKAR BB9 BESKAR B2-RP BASE RIC"
+      },
+      {
+        "step": 25,
+        "credits": "13.50T",
+        "unlocks": "",
+        "raw": "BESKAR PROTO-ROLLER BASE LOADLIFTER GOLD MO-TRAK"
+      },
+      {
+        "step": 26,
+        "credits": "21.00T",
+        "unlocks": "",
+        "raw": "GOLD LEP DIAMOND TRI-TEK RAINBOW SNOW MOUSE"
+      },
+      {
+        "step": 27,
+        "credits": "32.00T",
+        "unlocks": "",
+        "raw": "DIAMOND RIC-1200 RAINBOW IG BESKAR DRFT-R"
+      }
+    ],
+    [
+      {
+        "step": 1,
+        "credits": "10K",
+        "unlocks": "",
+        "raw": "BASE ID10 BASE PIT BASE DRK-1 PROBE"
+      },
+      {
+        "step": 2,
+        "credits": "150K",
+        "unlocks": "",
+        "raw": "BASE R3 BASE 2BB BASE SENATE HOVERCAM"
+      },
+      {
+        "step": 3,
+        "credits": "975K",
+        "unlocks": "",
+        "raw": "GOLD R5 GOLD R8 BASE R4"
+      },
+      {
+        "step": 4,
+        "credits": "2.95M",
+        "unlocks": "",
+        "raw": "GOLD B1 BATTLE GOLD R9 GOLD B1 SECURITY"
+      },
+      {
+        "step": 5,
+        "credits": "5.35M",
+        "unlocks": "",
+        "raw": "GOLD R3 GOLD 2BB GOLD SENATE HOVERCAM"
+      },
+      {
+        "step": 6,
+        "credits": "9.85M",
+        "unlocks": "",
+        "raw": "DIAMOND R5 DIAMOND R4 DIAMOND BDX EXPLORER"
+      },
+      {
+        "step": 7,
+        "credits": "14.5M",
+        "unlocks": "",
+        "raw": "DIAMOND R8 DIAMOND B1 BATTLE DIAMOND R9"
+      },
+      {
+        "step": 8,
+        "credits": "36M",
+        "unlocks": "",
+        "raw": "RAINBOW R3 RAINBOW B1 SECURITY RAINBOW 2BB"
+      },
+      {
+        "step": 9,
+        "credits": "89M",
+        "unlocks": "",
+        "raw": "RAINBOW R5 RAINBOW R4 RAINBOW BDX EXPLORER"
+      },
+      {
+        "step": 10,
+        "credits": "220M",
+        "unlocks": "",
+        "raw": "RAINBOW SENATE HOVERCAM BASE GROUNDMECH BASE TRAK-R"
+      },
+      {
+        "step": 11,
+        "credits": "550M",
+        "unlocks": "",
+        "raw": "BASE B2 HEAVY BASE B2 SUPER BASE UTIL-TEC"
+      },
+      {
+        "step": 12,
+        "credits": "1.36B",
+        "unlocks": "",
+        "raw": "RAINBOW BAL-CORE GOLD GROUNDMECH GOLD TRAK-R"
+      },
+      {
+        "step": 13,
+        "credits": "3.40B",
+        "unlocks": "",
+        "raw": "RAINBOW B2 SUPER BASE MECHA-DROID BASE PROTO-ROLLER"
+      },
+      {
+        "step": 14,
+        "credits": "8.45B",
+        "unlocks": "",
+        "raw": "DIAMOND BAL-CORE DIAMOND GROUNDMECH RAINBOW TRAK-R"
+      },
+      {
+        "step": 15,
+        "credits": "21.00B",
+        "unlocks": "",
+        "raw": "DIAMOND B2 HEAVY RAINBOW B2 SUPER BASE B2-RP"
+      },
+      {
+        "step": 16,
+        "credits": "52.00B",
+        "unlocks": "",
+        "raw": "RAINBOW UTIL-TEC BASE BB9 GOLD R7"
+      },
+      {
+        "step": 17,
+        "credits": "130.00B",
+        "unlocks": "",
+        "raw": "BASE OPTI-STRK GOLD CYCLO-GRAV GOLD MECHA-DROID"
+      },
+      {
+        "step": 18,
+        "credits": "325.00B",
+        "unlocks": "",
+        "raw": "GOLD B2-RP GOLD BB9 DIAMOND R7"
+      },
+      {
+        "step": 19,
+        "credits": "810.00B",
+        "unlocks": "",
+        "raw": "DIAMOND MECHA-DROID RAINBOW R7 RAINBOW B2-RP"
+      },
+      {
+        "step": 20,
+        "credits": "2.00T",
+        "unlocks": "",
+        "raw": "RAINBOW MONO-WLKR RAINBOW OPTI-STRK RAINBOW CYCLO-GRAV"
+      },
+      {
+        "step": 21,
+        "credits": "3.00T",
+        "unlocks": "",
+        "raw": "BESKAR AMP WALKER BESKAR GROUNDMECH BESKAR HAUL-R"
+      },
+      {
+        "step": 22,
+        "credits": "4.50T",
+        "unlocks": "",
+        "raw": "BESKAR GUNRUNNER BESKAR STRIKE-ORB BESKAR B2 SUPER"
+      },
+      {
+        "step": 23,
+        "credits": "6.00T",
+        "unlocks": "",
+        "raw": "BESKAR MONO-WLKR BESKAR CYCLO-GRAV BESKAR B2-RP"
+      },
+      {
+        "step": 24,
+        "credits": "9.00T",
+        "unlocks": "",
+        "raw": "BESKAR MECHA-DROID BESKAR PROTO-ROLLER BASE MO-TRAK"
+      },
+      {
+        "step": 25,
+        "credits": "13.50T",
+        "unlocks": "",
+        "raw": "BESKAR OPTI-STRK BASE TRI-TEK GOLD DRFT-R"
+      },
+      {
+        "step": 26,
+        "credits": "21.00T",
+        "unlocks": "",
+        "raw": "GOLD CYCLENS DIAMOND LEP RAINBOW MO-TRAK"
+      },
+      {
+        "step": 27,
+        "credits": "32.00T",
+        "unlocks": "",
+        "raw": "DIAMOND RIC-1200 RAINBOW SNOW MOUSE BESKAR LOADLIFTER"
+      }
+    ]
+  ],
+  "rarityByName": {
+    "MOUSE": "COMMON",
+    "PIT": "COMMON",
+    "GONK": "COMMON",
+    "CB": "COMMON",
+    "R3": "COMMON",
+    "R5": "COMMON",
+    "R8": "COMMON",
+    "DRK-1 PROBE": "COMMON",
+    "B1 BATTLE": "COMMON",
+    "ID10": "COMMON",
+    "BDX EXPLORER": "RARE",
+    "ARG": "RARE",
+    "SENATE HOVERCAM": "RARE",
+    "BU-4D": "RARE",
+    "BAL-CORE": "RARE",
+    "ROLL-R": "RARE",
+    "2BB": "RARE",
+    "A-LT": "RARE",
+    "R4": "RARE",
+    "R9": "RARE",
+    "B1 SECURITY": "RARE",
+    "NAV-EX": "RARE",
+    "VECT-ARM": "RARE",
+    "HOV-R": "RARE",
+    "GROUNDMECH": "EPIC",
+    "LO": "EPIC",
+    "AMP WALKER": "EPIC",
+    "SEN-TRI": "EPIC",
+    "OPTI-POD": "EPIC",
+    "BB": "EPIC",
+    "R2": "EPIC",
+    "R6": "EPIC",
+    "TRAK-R": "EPIC",
+    "ORB-WALKER": "EPIC",
+    "UTIL-TEC": "EPIC",
+    "B1 HEAVY": "EPIC",
+    "B2 SUPER": "EPIC",
+    "B2 HEAVY": "EPIC",
+    "STRIKE-ORB": "EPIC",
+    "HAUL-R": "EPIC",
+    "LNG-SHOT": "EPIC",
+    "PROTO-ROLLER": "EPIC",
+    "GUNRUNNER": "EPIC",
+    "MECHA-DROID": "LEGENDARY",
+    "MONO-WLKR": "LEGENDARY",
+    "BB9": "LEGENDARY",
+    "R7": "LEGENDARY",
+    "B2-RP": "LEGENDARY",
+    "CYCLO-GRAV": "LEGENDARY",
+    "OPTI-STRK": "LEGENDARY",
+    "BB9000": "MYTHIC",
+    "SNOW MOUSE": "MYTHIC",
+    "RIC": "MYTHIC",
+    "LOADLIFTER": "MYTHIC",
+    "LEP": "MYTHIC",
+    "RIC-1200": "MYTHIC",
+    "DRFT-R": "MYTHIC",
+    "CYCLENS": "MYTHIC",
+    "MO-TRAK": "MYTHIC",
+    "TRI-TEK": "MYTHIC",
+    "IG": "MYTHIC",
+    "KX": "MYTHIC"
+  },
+  "typeByName": {
+    "MOUSE": "Worker",
+    "PIT": "Worker",
+    "GONK": "Worker",
+    "BDX EXPLORER": "Worker",
+    "ARG": "Worker",
+    "SENATE HOVERCAM": "Worker",
+    "BU-4D": "Worker",
+    "BAL-CORE": "Worker",
+    "ROLL-R": "Worker",
+    "GROUNDMECH": "Worker",
+    "LO": "Worker",
+    "AMP WALKER": "Worker",
+    "SEN-TRI": "Worker",
+    "OPTI-POD": "Worker",
+    "MECHA-DROID": "Worker",
+    "MONO-WLKR": "Worker",
+    "CB": "Astromech",
+    "R3": "Astromech",
+    "R5": "Astromech",
+    "R8": "Astromech",
+    "2BB": "Astromech",
+    "A-LT": "Astromech",
+    "R4": "Astromech",
+    "R9": "Astromech",
+    "BB": "Astromech",
+    "R2": "Astromech",
+    "R6": "Astromech",
+    "TRAK-R": "Astromech",
+    "ORB-WALKER": "Astromech",
+    "UTIL-TEC": "Astromech",
+    "BB9": "Astromech",
+    "R7": "Astromech",
+    "DRK-1 PROBE": "Battle",
+    "B1 BATTLE": "Battle",
+    "ID10": "Battle",
+    "B1 SECURITY": "Battle",
+    "NAV-EX": "Battle",
+    "VECT-ARM": "Battle",
+    "HOV-R": "Battle",
+    "B1 HEAVY": "Battle",
+    "B2 SUPER": "Battle",
+    "B2 HEAVY": "Battle",
+    "STRIKE-ORB": "Battle",
+    "HAUL-R": "Battle",
+    "LNG-SHOT": "Battle",
+    "PROTO-ROLLER": "Battle",
+    "GUNRUNNER": "Battle",
+    "B2-RP": "Battle",
+    "CYCLO-GRAV": "Battle",
+    "OPTI-STRK": "Battle",
+    "SNOW MOUSE": "Worker",
+    "RIC": "Worker",
+    "LOADLIFTER": "Worker",
+    "LEP": "Worker",
+    "RIC-1200": "Worker",
+    "DRFT-R": "Astromech",
+    "CYCLENS": "Astromech",
+    "MO-TRAK": "Astromech",
+    "TRI-TEK": "Astromech",
+    "IG": "Battle",
+    "KX": "Battle"
+  }
+}
