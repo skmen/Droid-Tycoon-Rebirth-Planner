@@ -198,8 +198,8 @@ export default function App() {
       }}
     >
       <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 18 }}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <svg width="36" height="36" viewBox="0 0 36 36" style={{ flexShrink: 0 }}>
                 <rect width="36" height="36" rx="10" fill="#312e81" />
@@ -208,19 +208,19 @@ export default function App() {
                 <circle cx="21.5" cy="17" r="1.8" fill="#1f2430" />
                 <rect x="9" y="24" width="18" height="4" rx="2" fill="#4f46e5" />
               </svg>
-              <h1 style={{ fontSize: 23, fontWeight: 800, margin: 0, letterSpacing: '-0.02em' }}>Droid Tycoon Rebirth Planner</h1>
+              <h1 style={{ fontSize: 23, fontWeight: 800, margin: 0, letterSpacing: '-0.02em' }}>Droid Tycoon RB Planner</h1>
             </div>
-            <p style={{ margin: 0, fontSize: 13, color: theme.textSecondary, maxWidth: 520 }}>
-              Unofficial fan tool — plan your next rebirth and check droids to keep or sell.
-            </p>
+            <SettingsMenu
+              theme={theme}
+              dark={dark}
+              onToggleTheme={() => setDark((d) => !d)}
+              showAds={showAds}
+              onToggleAds={() => setShowAds((s) => !s)}
+            />
           </div>
-          <SettingsMenu
-            theme={theme}
-            dark={dark}
-            onToggleTheme={() => setDark((d) => !d)}
-            showAds={showAds}
-            onToggleAds={() => setShowAds((s) => !s)}
-          />
+          <p style={{ margin: 0, fontSize: 13, color: theme.textSecondary, maxWidth: 520 }}>
+            The unofficial rebirth tool for Droid Tycoon! Plan your next rebirth and check which droids to keep, sell or upgrade.
+          </p>
         </div>
 
         {showAds && !isMobile && (
