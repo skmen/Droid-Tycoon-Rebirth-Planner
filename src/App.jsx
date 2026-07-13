@@ -242,7 +242,7 @@ export default function App() {
               overflow: 'hidden',
             }}
           >
-            <AdUnit slot={AD_SLOT_TOP} style={{ width: '100%', minHeight: 64 }} />
+            <AdUnit slot={AD_SLOT_TOP} format="horizontal" style={{ width: '100%', minHeight: 64 }} />
           </div>
         )}
 
@@ -501,7 +501,7 @@ export default function App() {
                   overflow: 'hidden',
                 }}
               >
-                <AdUnit slot={AD_SLOT_SIDEBAR} style={{ width: '100%', minHeight: 250 }} />
+                <AdUnit slot={AD_SLOT_SIDEBAR} format="rectangle" style={{ width: '100%', minHeight: 250 }} />
               </div>
             )}
             <div
