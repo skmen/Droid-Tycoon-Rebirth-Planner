@@ -61,9 +61,35 @@ export default function SettingsMenu({ theme, dark, onToggleTheme, showAds, onTo
         >
           <MenuRow theme={theme} label="Dark theme" on={dark} onClick={onToggleTheme} />
           <MenuRow theme={theme} label="Show ads" on={showAds} onClick={onToggleAds} />
+          <div style={{ height: 1, background: theme.border, margin: '4px 2px' }} />
+          <MenuLink theme={theme} href="/how-to.html">How to use</MenuLink>
+          <MenuLink theme={theme} href="/rb-requirements.html">RB Requirements</MenuLink>
         </div>
       )}
     </div>
+  );
+}
+
+function MenuLink({ theme, href, children }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <a
+      href={href}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        display: 'block',
+        padding: '9px 10px',
+        borderRadius: 8,
+        background: hover ? theme.tableHeaderBg : 'transparent',
+        color: theme.text,
+        fontSize: 13,
+        fontWeight: 600,
+        textDecoration: 'none',
+      }}
+    >
+      {children}
+    </a>
   );
 }
 

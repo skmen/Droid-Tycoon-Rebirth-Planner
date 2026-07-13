@@ -580,6 +580,18 @@ export default function App() {
         <p style={{ margin: '4px 0 0', fontSize: 11, color: theme.textMuted, textAlign: 'center' }}>
           Requirements are community-sourced and may shift with updates — verify at the Rebirth Station before selling.
         </p>
+
+        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '6px 16px' }}>
+          {[
+            ['Privacy Policy', '/privacy.html'],
+            ['About', '/about.html'],
+            ['Contact', '/contact.html'],
+          ].map(([label, href]) => (
+            <a key={href} href={href} style={{ fontSize: 11, color: theme.textMuted, textDecoration: 'underline' }}>
+              {label}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
