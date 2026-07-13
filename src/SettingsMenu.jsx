@@ -59,21 +59,23 @@ export default function SettingsMenu({ theme, dark, onToggleTheme, showAds, onTo
             gap: 2,
           }}
         >
-          <MenuRow theme={theme} label="Theme" value={dark ? 'Dark' : 'Light'} onClick={onToggleTheme} />
-          <MenuRow theme={theme} label="Ads" value={showAds ? 'Shown' : 'Hidden'} onClick={onToggleAds} />
+          <MenuRow theme={theme} label="Dark theme" on={dark} onClick={onToggleTheme} />
+          <MenuRow theme={theme} label="Show ads" on={showAds} onClick={onToggleAds} />
         </div>
       )}
     </div>
   );
 }
 
-function MenuRow({ theme, label, value, onClick }) {
+function MenuRow({ theme, label, on, onClick }) {
   const [hover, setHover] = useState(false);
   return (
     <button
       onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      role="switch"
+      aria-checked={on}
       style={{
         display: 'flex',
         alignItems: 'center',
@@ -92,7 +94,37 @@ function MenuRow({ theme, label, value, onClick }) {
       }}
     >
       <span>{label}</span>
-      <span style={{ color: theme.textSecondary, fontWeight: 700 }}>{value}</span>
+      <Switch theme={theme} on={on} />
     </button>
+  );
+}
+
+function Switch({ theme, on }) {
+  return (
+    <span
+      style={{
+        position: 'relative',
+        width: 34,
+        height: 20,
+        borderRadius: 999,
+        flexShrink: 0,
+        background: on ? theme.accent : theme.border,
+        transition: 'background 0.15s',
+      }}
+    >
+      <span
+        style={{
+          position: 'absolute',
+          top: 2,
+          left: on ? 16 : 2,
+          width: 16,
+          height: 16,
+          borderRadius: '50%',
+          background: '#fff',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.35)',
+          transition: 'left 0.15s',
+        }}
+      />
+    </span>
   );
 }
