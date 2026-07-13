@@ -1,3 +1,15 @@
 node_modules
 dist
 .DS_Store
+
+# AI assistant local config/context (not meant for the repo)
+CLAUDE.md
+.claude/
+.cursorrules
+.cursor/
+.windsurfrules
+.clinerules/
+.aider*
+AGENTS.md
+GEMINI.md
+.github/copilot-instructions.md
