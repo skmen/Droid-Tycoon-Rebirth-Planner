@@ -245,35 +245,7 @@ export default function App() {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 18, alignItems: 'flex-start' }}>
           <div style={{ flex: '2 1 520px', display: 'flex', flexDirection: 'column', gap: 18, minWidth: 0 }}>
             <div style={{ background: theme.cardBg, borderRadius: 16, padding: '18px 20px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                <label style={{ fontSize: 12, fontWeight: 600, color: theme.textSecondary }}>Current rebirth level</label>
-                <input
-                  type="number"
-                  min="0"
-                  max="27"
-                  value={rebirthInput}
-                  onChange={(e) => {
-                    setRebirthInput(e.target.value);
-                    setRebirth(clampRebirth(e.target.value));
-                  }}
-                  onBlur={() => setRebirthInput(String(rebirth))}
-                  style={{
-                    width: 100,
-                    padding: '9px 12px',
-                    borderRadius: 9,
-                    border: `1px solid ${theme.border}`,
-                    fontSize: 16,
-                    fontWeight: 700,
-                    fontFamily: "'JetBrains Mono',monospace",
-                    color: theme.text,
-                    background: theme.inputBg,
-                  }}
-                />
-              </div>
-            </div>
-
-            <div style={{ background: theme.cardBg, borderRadius: 16, padding: '18px 20px' }}>
-              <div style={{ display: 'flex', gap: 6, marginBottom: 14 }}>
+              <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
                 {[1, 2, 3, 4].map((n) => (
                   <button
                     key={n}
@@ -294,6 +266,52 @@ export default function App() {
                 ))}
               </div>
 
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 12 }}>
+                <label style={{ fontSize: 12, fontWeight: 600, color: theme.textSecondary }}>Current rebirth level</label>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, fontFamily: "'JetBrains Mono',monospace", fontSize: 26, fontWeight: 800 }}>
+                    <span>RB</span>
+                    <input
+                      type="number"
+                      min="0"
+                      max="27"
+                      value={rebirthInput}
+                      onChange={(e) => {
+                        setRebirthInput(e.target.value);
+                        setRebirth(clampRebirth(e.target.value));
+                      }}
+                      onBlur={() => setRebirthInput(String(rebirth))}
+                      style={{
+                        width: 76,
+                        padding: '2px 10px',
+                        borderRadius: 9,
+                        border: `1px solid ${theme.border}`,
+                        fontSize: 26,
+                        fontWeight: 800,
+                        fontFamily: "'JetBrains Mono',monospace",
+                        color: theme.text,
+                        background: theme.inputBg,
+                      }}
+                    />
+                    {hasNext && <span>→ {nextRow.step}</span>}
+                  </div>
+                  {hasNext && (
+                    <div style={{ fontSize: 13, color: theme.textSecondary }}>
+                      needs{' '}
+                      <span style={{ fontWeight: 800, fontSize: 19, color: '#fff', textShadow: OUTLINE, fontFamily: "'JetBrains Mono',monospace" }}>
+                        {nextRow.credits}
+                      </span>{' '}
+                      credits
+                    </div>
+                  )}
+                  {hasNext && !!nextRow.unlocks && (
+                    <div style={{ fontSize: 11, fontWeight: 700, color: theme.unlockFg, background: theme.unlockBg, padding: '4px 10px', borderRadius: 999 }}>
+                      unlocks {nextRow.unlocks}
+                    </div>
+                  )}
+                </div>
+              </div>
+
               {isMaxed && (
                 <div style={{ fontSize: 14, fontWeight: 700, color: theme.accent, background: theme.accentSoftBg, borderRadius: 12, padding: '14px 16px' }}>
                   Cycle complete — Super Rebirth to advance into the next cycle.
@@ -302,24 +320,6 @@ export default function App() {
 
               {hasNext && (
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap', marginBottom: 12 }}>
-                    <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 26, fontWeight: 800 }}>
-                      Rebirth {nextRow.step - 1} → {nextRow.step}
-                    </div>
-                    <div style={{ fontSize: 13, color: theme.textSecondary }}>
-                      needs{' '}
-                      <span style={{ fontWeight: 800, fontSize: 19, color: '#fff', textShadow: OUTLINE, fontFamily: "'JetBrains Mono',monospace" }}>
-                        {nextRow.credits}
-                      </span>{' '}
-                      credits
-                    </div>
-                    {!!nextRow.unlocks && (
-                      <div style={{ fontSize: 11, fontWeight: 700, color: theme.unlockFg, background: theme.unlockBg, padding: '4px 10px', borderRadius: 999 }}>
-                        unlocks {nextRow.unlocks}
-                      </div>
-                    )}
-                  </div>
-
                   <hr style={{ border: 'none', borderTop: `1px solid ${theme.rowBorder}`, margin: '0 0 14px' }} />
 
                   {isMobile ? (
