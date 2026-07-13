@@ -5,6 +5,9 @@ import AdUnit from './AdUnit.jsx';
 import SettingsMenu from './SettingsMenu.jsx';
 import { loadPersistedState, savePersistedState } from './storage.js';
 
+// Ads paused site-wide while switching monetization approach — flip this back
+// to re-enable (and restore the "Show ads" row in SettingsMenu below).
+const ADS_ENABLED = false;
 const AD_SLOT_TOP = '2218723355';
 const AD_SLOT_SIDEBAR = '2804634020';
 
@@ -216,6 +219,7 @@ export default function App() {
               onToggleTheme={() => setDark((d) => !d)}
               showAds={showAds}
               onToggleAds={() => setShowAds((s) => !s)}
+              adsEnabled={ADS_ENABLED}
             />
           </div>
           <p style={{ margin: 0, fontSize: 13, color: theme.textSecondary, maxWidth: 520 }}>
@@ -223,7 +227,7 @@ export default function App() {
           </p>
         </div>
 
-        {showAds && !isMobile && (
+        {ADS_ENABLED && showAds && !isMobile && (
           <div
             style={{
               border: `1px solid ${theme.adBorder}`,
@@ -538,7 +542,7 @@ export default function App() {
           </div>
 
           <div style={{ flex: '1 1 240px', display: 'flex', flexDirection: 'column', gap: 18, minWidth: 220 }}>
-            {showAds && (
+            {ADS_ENABLED && showAds && (
               <div
                 style={{
                   border: `1px solid ${theme.adBorder}`,
@@ -591,6 +595,28 @@ export default function App() {
               {label}
             </a>
           ))}
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <a
+            href="https://ko-fi.com/disastron"
+            target="_blank"
+            rel="noopener"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '11px 20px',
+              borderRadius: 999,
+              background: '#FF5E5B',
+              color: '#fff',
+              fontWeight: 800,
+              fontSize: 14,
+              textDecoration: 'none',
+            }}
+          >
+            <span aria-hidden="true">☕</span> Support on Ko-fi
+          </a>
         </div>
       </div>
     </div>
