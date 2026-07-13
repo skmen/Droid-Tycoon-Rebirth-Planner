@@ -1,7 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 import { CYCLES, DARK, LIGHT, RARITY_BY_NAME, RARITY_COLOR, TIER_STYLE, TYPE_BY_NAME, parseRaw } from './data.js';
 import TableRow from './TableRow.jsx';
+import AdUnit from './AdUnit.jsx';
 import { loadPersistedState, savePersistedState } from './storage.js';
+
+const AD_SLOT_TOP = '2218723355';
+const AD_SLOT_SIDEBAR = '2804634020';
 
 const RARITY_ORDER = { COMMON: 0, RARE: 1, EPIC: 2, LEGENDARY: 3, MYTHIC: 4, '—': -1 };
 const TIER_ORDER = { DEFAULT: 0, GOLD: 1, DIAMOND: 2, RAINBOW: 3, BESKAR: 4 };
@@ -226,20 +230,19 @@ export default function App() {
         {showAds && (
           <div
             style={{
-              border: `1px dashed ${theme.adBorder}`,
+              border: `1px solid ${theme.adBorder}`,
               borderRadius: 12,
               background: theme.adBg,
-              padding: '10px 16px',
+              padding: 8,
+              boxSizing: 'border-box',
+              minHeight: 64,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              height: 64,
-              boxSizing: 'border-box',
+              overflow: 'hidden',
             }}
           >
-            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, letterSpacing: '0.08em', color: theme.adText, textTransform: 'uppercase' }}>
-              Advertisement · 728×90
-            </span>
+            <AdUnit slot={AD_SLOT_TOP} style={{ width: '100%', minHeight: 64 }} />
           </div>
         )}
 
@@ -486,22 +489,19 @@ export default function App() {
             {showAds && (
               <div
                 style={{
-                  border: `1px dashed ${theme.adBorder}`,
+                  border: `1px solid ${theme.adBorder}`,
                   borderRadius: 12,
                   background: theme.adBg,
-                  padding: '10px 16px',
+                  padding: 8,
+                  boxSizing: 'border-box',
+                  minHeight: 250,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  height: 250,
-                  boxSizing: 'border-box',
+                  overflow: 'hidden',
                 }}
               >
-                <span
-                  style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, letterSpacing: '0.08em', color: theme.adText, textTransform: 'uppercase' }}
-                >
-                  Advertisement · 300×250
-                </span>
+                <AdUnit slot={AD_SLOT_SIDEBAR} style={{ width: '100%', minHeight: 250 }} />
               </div>
             )}
             <div
