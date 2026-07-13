@@ -198,20 +198,13 @@ export default function App() {
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div
-                style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: 9,
-                  background: 'linear-gradient(180deg,#4f46e5,#4338ca)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                <div style={{ width: 12, height: 12, borderRadius: 4, background: '#fff' }} />
-              </div>
+              <svg width="36" height="36" viewBox="0 0 36 36" style={{ flexShrink: 0 }}>
+                <rect width="36" height="36" rx="10" fill="#312e81" />
+                <path d="M9 22a9 9 0 0 1 18 0z" fill="#818cf8" />
+                <circle cx="14.5" cy="17" r="1.8" fill="#1f2430" />
+                <circle cx="21.5" cy="17" r="1.8" fill="#1f2430" />
+                <rect x="9" y="24" width="18" height="4" rx="2" fill="#4f46e5" />
+              </svg>
               <h1 style={{ fontSize: 23, fontWeight: 800, margin: 0, letterSpacing: '-0.02em' }}>Droid Tycoon Rebirth Planner</h1>
             </div>
             <p style={{ margin: 0, fontSize: 13, color: theme.textSecondary, maxWidth: 520 }}>
