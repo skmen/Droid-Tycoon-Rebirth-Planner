@@ -228,7 +228,7 @@ export default function App() {
           </div>
         </div>
 
-        {showAds && (
+        {showAds && !isMobile && (
           <div
             style={{
               border: `1px solid ${theme.adBorder}`,
@@ -236,14 +236,14 @@ export default function App() {
               background: theme.adBg,
               padding: 8,
               boxSizing: 'border-box',
-              minHeight: 64,
+              minHeight: 90,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               overflow: 'hidden',
             }}
           >
-            <AdUnit slot={AD_SLOT_TOP} format="horizontal" style={{ width: '100%', minHeight: 64 }} />
+            <AdUnit slot={AD_SLOT_TOP} width={728} height={90} />
           </div>
         )}
 
@@ -506,7 +506,7 @@ export default function App() {
                   overflow: 'hidden',
                 }}
               >
-                <AdUnit slot={AD_SLOT_SIDEBAR} format="rectangle" style={{ width: '100%', minHeight: 250 }} />
+                <AdUnit slot={AD_SLOT_SIDEBAR} width={300} height={250} />
               </div>
             )}
             <div

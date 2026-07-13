@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function AdUnit({ slot, style, format = 'auto', fullWidthResponsive = true }) {
+export default function AdUnit({ slot, style, width, height }) {
   const pushed = useRef(false);
 
   useEffect(() => {
@@ -13,14 +13,15 @@ export default function AdUnit({ slot, style, format = 'auto', fullWidthResponsi
     }
   }, []);
 
+  // Fixed width/height (no data-ad-format / full-width-responsive) locks the
+  // ad to this exact shape — Google's "auto" responsive sizing otherwise
+  // picks its own height and can render a full-width square on narrow screens.
   return (
     <ins
       className="adsbygoogle"
-      style={{ display: 'block', ...style }}
+      style={{ display: 'inline-block', width, height, ...style }}
       data-ad-client="ca-pub-6612118969935438"
       data-ad-slot={slot}
-      data-ad-format={format}
-      data-full-width-responsive={fullWidthResponsive ? 'true' : 'false'}
     />
   );
 }
