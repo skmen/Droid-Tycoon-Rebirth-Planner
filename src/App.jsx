@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { CYCLES, DARK, LIGHT, RARITY_BY_NAME, RARITY_COLOR, TIER_STYLE, TYPE_BY_NAME, parseRaw } from './data.js';
 import TableRow from './TableRow.jsx';
 import AdUnit from './AdUnit.jsx';
+import SettingsMenu from './SettingsMenu.jsx';
 import { loadPersistedState, savePersistedState } from './storage.js';
 
 const AD_SLOT_TOP = '2218723355';
@@ -211,14 +212,13 @@ export default function App() {
               Unofficial fan tool — plan your next rebirth and check droids to keep or sell.
             </p>
           </div>
-          <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
-            <button onClick={() => setShowAds((s) => !s)} style={buttonStyle(theme)}>
-              {showAds ? 'Hide Ads' : 'Show Ads'}
-            </button>
-            <button onClick={() => setDark((d) => !d)} style={buttonStyle(theme)}>
-              {dark ? '☾ Dark' : '☀ Light'}
-            </button>
-          </div>
+          <SettingsMenu
+            theme={theme}
+            dark={dark}
+            onToggleTheme={() => setDark((d) => !d)}
+            showAds={showAds}
+            onToggleAds={() => setShowAds((s) => !s)}
+          />
         </div>
 
         {showAds && !isMobile && (
@@ -529,19 +529,6 @@ export default function App() {
       </div>
     </div>
   );
-}
-
-function buttonStyle(theme) {
-  return {
-    padding: '9px 14px',
-    borderRadius: 9,
-    border: `1px solid ${theme.border}`,
-    background: theme.cardBg,
-    color: theme.text,
-    fontWeight: 700,
-    fontSize: 13,
-    cursor: 'pointer',
-  };
 }
 
 function selectStyle(theme) {
