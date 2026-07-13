@@ -20,6 +20,7 @@ function clampRebirth(v) {
 export default function App() {
   const [persisted] = useState(() => loadPersistedState() || {});
   const [rebirth, setRebirth] = useState(() => persisted.rebirth ?? 0);
+  const [rebirthInput, setRebirthInput] = useState(() => String(persisted.rebirth ?? 0));
   const [cycle, setCycle] = useState(() => persisted.cycle ?? 1);
   const [query, setQuery] = useState('');
   const [dark, setDark] = useState(() => persisted.dark ?? true);
@@ -256,8 +257,12 @@ export default function App() {
                     type="number"
                     min="0"
                     max="27"
-                    value={rebirth}
-                    onChange={(e) => setRebirth(clampRebirth(e.target.value))}
+                    value={rebirthInput}
+                    onChange={(e) => {
+                      setRebirthInput(e.target.value);
+                      setRebirth(clampRebirth(e.target.value));
+                    }}
+                    onBlur={() => setRebirthInput(String(rebirth))}
                     style={{
                       width: 100,
                       padding: '9px 12px',
