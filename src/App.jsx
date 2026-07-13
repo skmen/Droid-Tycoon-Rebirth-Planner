@@ -80,28 +80,30 @@ export default function App() {
     };
   };
 
-  const nextDroidsList = nextRow ? parseRaw(nextRow.raw).map(decorate) : [];
-
-  const nextDroidVerdicts = nextRow
+  // Combines tier/rarity styling (decorate) with the keep/sell verdict for
+  // each droid required by the next rebirth — one source of truth used by
+  // both the mobile combined list and the desktop two-section layout.
+  const nextDroids = nextRow
     ? parseRaw(nextRow.raw).map((it) => {
+        const decorated = decorate(it);
         const laterOccurrences = rows
           .filter((r) => r.step > nextRow.step)
           .flatMap((r) => parseRaw(r.raw).filter((x) => x.name === it.name).map((x) => ({ ...x, step: r.step })));
         const sameTierLater = laterOccurrences.find((x) => x.tier === it.tier);
         const higherTierLater = laterOccurrences.find((x) => x.tier !== it.tier);
         if (sameTierLater) {
-          return { ...it, badge: '⚠ KEEP', bg: theme.sellBg, fg: theme.sellFg, note: `Needed again at RB ${sameTierLater.step}.` };
+          return { ...decorated, badge: '⚠ KEEP', badgeBg: theme.sellBg, badgeFg: theme.sellFg, note: `Needed again at RB ${sameTierLater.step}.` };
         }
         if (higherTierLater) {
           return {
-            ...it,
+            ...decorated,
             badge: '↑ SELL, OR UPGRADE',
-            bg: theme.unlockBg,
-            fg: theme.unlockFg,
+            badgeBg: theme.unlockBg,
+            badgeFg: theme.unlockFg,
             note: `You can sell this ${it.tier} now, but you'll need a ${higherTierLater.tier} version by RB ${higherTierLater.step}.`,
           };
         }
-        return { ...it, badge: '✓ SELL', bg: theme.keepBg, fg: theme.keepFg, note: '' };
+        return { ...decorated, badge: '✓ SELL', badgeBg: theme.keepBg, badgeFg: theme.keepFg, note: '' };
       })
     : [];
 
@@ -308,7 +310,11 @@ export default function App() {
                       Rebirth {nextRow.step - 1} → {nextRow.step}
                     </div>
                     <div style={{ fontSize: 13, color: theme.textSecondary }}>
-                      needs <span style={{ fontWeight: 700, color: theme.accent, fontFamily: "'JetBrains Mono',monospace" }}>{nextRow.credits}</span> credits
+                      needs{' '}
+                      <span style={{ fontWeight: 800, fontSize: 19, color: '#fff', textShadow: OUTLINE, fontFamily: "'JetBrains Mono',monospace" }}>
+                        {nextRow.credits}
+                      </span>{' '}
+                      credits
                     </div>
                     {!!nextRow.unlocks && (
                       <div style={{ fontSize: 11, fontWeight: 700, color: theme.unlockFg, background: theme.unlockBg, padding: '4px 10px', borderRadius: 999 }}>
@@ -316,56 +322,101 @@ export default function App() {
                       </div>
                     )}
                   </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 16 }}>
-                    {nextDroidsList.map((d, i) => (
-                      <div
-                        key={i}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: 6,
-                          background: d.tierBg,
-                          color: d.tierFg,
-                          padding: '7px 11px',
-                          borderRadius: 9,
-                          fontSize: 12,
-                          fontWeight: 700,
-                          textShadow: d.textOutline,
-                        }}
-                      >
-                        <span style={{ fontSize: 9, letterSpacing: '0.06em', opacity: 0.9 }}>{d.tier}</span>
-                        <span>{d.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, borderTop: `1px solid ${theme.rowBorder}`, paddingTop: 12 }}>
-                    <div style={{ fontSize: 11, fontWeight: 700, color: theme.textMuted, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                      After this rebirth
+
+                  {isMobile ? (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                      {nextDroids.map((d, i) => (
+                        <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 6, padding: '8px 0', borderBottom: `1px solid ${theme.rowBorder}` }}>
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 6,
+                                background: d.tierBg,
+                                color: d.tierFg,
+                                padding: '7px 11px',
+                                borderRadius: 9,
+                                fontSize: 12,
+                                fontWeight: 700,
+                                textShadow: d.textOutline,
+                              }}
+                            >
+                              <span style={{ fontSize: 9, letterSpacing: '0.06em', opacity: 0.9 }}>{d.tier}</span>
+                              <span>{d.name}</span>
+                            </div>
+                            <span
+                              style={{
+                                fontWeight: 800,
+                                fontSize: 11,
+                                color: d.badgeFg,
+                                background: d.badgeBg,
+                                padding: '3px 9px',
+                                borderRadius: 999,
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              {d.badge}
+                            </span>
+                          </div>
+                          {!!d.note && <div style={{ fontSize: 11, color: theme.textMuted }}>{d.note}</div>}
+                        </div>
+                      ))}
                     </div>
-                    {nextDroidVerdicts.map((v, i) => (
-                      <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 4, padding: '6px 0', borderBottom: `1px solid ${theme.rowBorder}` }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, fontSize: 12 }}>
-                          <span style={{ fontWeight: 600, color: theme.text }}>
-                            {v.tier} {v.name}
-                          </span>
-                          <span
+                  ) : (
+                    <>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 16 }}>
+                        {nextDroids.map((d, i) => (
+                          <div
+                            key={i}
                             style={{
-                              fontWeight: 800,
-                              fontSize: 11,
-                              color: v.fg,
-                              background: v.bg,
-                              padding: '3px 9px',
-                              borderRadius: 999,
-                              whiteSpace: 'nowrap',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 6,
+                              background: d.tierBg,
+                              color: d.tierFg,
+                              padding: '7px 11px',
+                              borderRadius: 9,
+                              fontSize: 12,
+                              fontWeight: 700,
+                              textShadow: d.textOutline,
                             }}
                           >
-                            {v.badge}
-                          </span>
-                        </div>
-                        {!!v.note && <div style={{ fontSize: 11, color: theme.textMuted }}>{v.note}</div>}
+                            <span style={{ fontSize: 9, letterSpacing: '0.06em', opacity: 0.9 }}>{d.tier}</span>
+                            <span>{d.name}</span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 6, borderTop: `1px solid ${theme.rowBorder}`, paddingTop: 12 }}>
+                        <div style={{ fontSize: 11, fontWeight: 700, color: theme.textMuted, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                          After this rebirth
+                        </div>
+                        {nextDroids.map((v, i) => (
+                          <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 4, padding: '6px 0', borderBottom: `1px solid ${theme.rowBorder}` }}>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, fontSize: 12 }}>
+                              <span style={{ fontWeight: 600, color: theme.text }}>
+                                {v.tier} {v.name}
+                              </span>
+                              <span
+                                style={{
+                                  fontWeight: 800,
+                                  fontSize: 11,
+                                  color: v.badgeFg,
+                                  background: v.badgeBg,
+                                  padding: '3px 9px',
+                                  borderRadius: 999,
+                                  whiteSpace: 'nowrap',
+                                }}
+                              >
+                                {v.badge}
+                              </span>
+                            </div>
+                            {!!v.note && <div style={{ fontSize: 11, color: theme.textMuted }}>{v.note}</div>}
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
               )}
             </div>
