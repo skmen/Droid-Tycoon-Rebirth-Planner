@@ -205,7 +205,7 @@ export default function App() {
         transition: 'background 0.15s',
       }}
     >
-      <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <div style={{ maxWidth: 720, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 18 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -251,7 +251,7 @@ export default function App() {
           </div>
         )}
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 18, maxWidth: 720, width: '100%', margin: '0 auto' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
             <div style={{ background: theme.cardBg, borderRadius: 16, padding: '18px 20px' }}>
               <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
                 {[1, 2, 3, 4].map((n) => (
