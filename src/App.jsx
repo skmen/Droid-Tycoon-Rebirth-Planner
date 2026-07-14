@@ -22,11 +22,15 @@ function clampRebirth(v) {
 }
 
 const REBIRTH_FLASH_MS = 900;
+// Data swap fires partway through the 45%-60% fully-opaque hold below, so it's
+// safely hidden — not at the single-instant peak the old keyframes had.
+const REBIRTH_SWAP_DELAY_MS = Math.round(REBIRTH_FLASH_MS * 0.5);
 const REBIRTH_FLASH_CSS = `
 @keyframes rebirthFlash {
   0% { box-shadow: 0 0 0 0 rgba(255,255,255,0); background: rgba(255,255,255,0); }
-  35% { box-shadow: 0 0 0 3px rgba(255,255,255,0.95), 0 0 36px 10px rgba(255,255,255,0.65); background: rgba(255,255,255,0); }
-  55% { box-shadow: 0 0 0 3px rgba(255,255,255,0.95), 0 0 36px 10px rgba(255,255,255,0.65); background: rgba(255,255,255,1); }
+  30% { box-shadow: 0 0 0 3px rgba(255,255,255,0.95), 0 0 36px 10px rgba(255,255,255,0.65); background: rgba(255,255,255,0); }
+  45% { box-shadow: 0 0 0 3px rgba(255,255,255,0.95), 0 0 36px 10px rgba(255,255,255,0.65); background: rgba(255,255,255,1); }
+  60% { box-shadow: 0 0 0 3px rgba(255,255,255,0.95), 0 0 36px 10px rgba(255,255,255,0.65); background: rgba(255,255,255,1); }
   100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); background: rgba(255,255,255,0); }
 }
 `;
@@ -339,7 +343,7 @@ export default function App() {
                           rebirthTimeoutRef.current = setTimeout(() => {
                             setRebirth(step);
                             setRebirthInput(String(step));
-                          }, REBIRTH_FLASH_MS);
+                          }, REBIRTH_SWAP_DELAY_MS);
                         }}
                         title={`Mark rebirth ${nextRow.step} complete`}
                         style={{
