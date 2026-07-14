@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { CYCLES, DARK, LIGHT, RARITY_BY_NAME, RARITY_COLOR, TIER_STYLE, TYPE_BY_NAME, parseRaw } from './data.js';
 import TableRow from './TableRow.jsx';
 import AdUnit from './AdUnit.jsx';
@@ -21,6 +21,7 @@ function clampRebirth(v) {
   return Math.max(0, Math.min(27, n));
 }
 
+const REBIRTH_FLASH_MS = 900;
 const REBIRTH_FLASH_CSS = `
 @keyframes rebirthFlash {
   0% { box-shadow: 0 0 0 0 rgba(255,255,255,0); background: rgba(255,255,255,0); }
@@ -34,6 +35,9 @@ export default function App() {
   const [persisted] = useState(() => loadPersistedState() || {});
   const [rebirth, setRebirth] = useState(() => persisted.rebirth ?? 0);
   const [rebirthPulse, setRebirthPulse] = useState(0);
+  const rebirthTimeoutRef = useRef(null);
+
+  useEffect(() => () => clearTimeout(rebirthTimeoutRef.current), []);
   const [rebirthInput, setRebirthInput] = useState(() => String(persisted.rebirth ?? 0));
   const [cycle, setCycle] = useState(() => persisted.cycle ?? 1);
   const [query, setQuery] = useState('');
@@ -273,7 +277,7 @@ export default function App() {
                     inset: 0,
                     borderRadius: 16,
                     pointerEvents: 'none',
-                    animation: 'rebirthFlash 900ms ease-out',
+                    animation: `rebirthFlash ${REBIRTH_FLASH_MS}ms ease-out`,
                     zIndex: 5,
                   }}
                 />
@@ -329,9 +333,13 @@ export default function App() {
                     {hasNext && (
                       <button
                         onClick={() => {
-                          setRebirth(nextRow.step);
-                          setRebirthInput(String(nextRow.step));
+                          const step = nextRow.step;
                           setRebirthPulse((p) => p + 1);
+                          clearTimeout(rebirthTimeoutRef.current);
+                          rebirthTimeoutRef.current = setTimeout(() => {
+                            setRebirth(step);
+                            setRebirthInput(String(step));
+                          }, REBIRTH_FLASH_MS);
                         }}
                         title={`Mark rebirth ${nextRow.step} complete`}
                         style={{
