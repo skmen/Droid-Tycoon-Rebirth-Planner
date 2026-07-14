@@ -67,8 +67,9 @@ const html = `<!doctype html>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>RB Requirements — Droid Tycoon RB Planner</title>
+<title>Droid Tycoon Rebirth Requirements — All Cycles & Levels</title>
 <meta name="description" content="The full rebirth requirements data set used by Droid Tycoon RB Planner, published so the community can verify and flag corrections." />
+<link rel="canonical" href="https://nextrebirth.app/rb-requirements.html" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 <style>
@@ -110,7 +111,7 @@ const html = `<!doctype html>
     <span>Droid Tycoon RB Planner</span>
   </a>
 
-  <h1>RB Requirements</h1>
+  <h1>Droid Tycoon Rebirth Requirements</h1>
   <p class="lede">The complete rebirth requirements data set used by the planner — every cycle, every rebirth level, straight from the same source file the app runs on. If anything here doesn't match what you're seeing in-game, please <a href="/contact.html">let us know</a>.</p>
 
   ${tables}
