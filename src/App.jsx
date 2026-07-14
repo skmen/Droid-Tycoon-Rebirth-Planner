@@ -21,9 +21,19 @@ function clampRebirth(v) {
   return Math.max(0, Math.min(27, n));
 }
 
+const REBIRTH_FLASH_CSS = `
+@keyframes rebirthFlash {
+  0% { box-shadow: 0 0 0 0 rgba(255,255,255,0); background: rgba(255,255,255,0); }
+  35% { box-shadow: 0 0 0 3px rgba(255,255,255,0.95), 0 0 36px 10px rgba(255,255,255,0.65); background: rgba(255,255,255,0); }
+  55% { box-shadow: 0 0 0 3px rgba(255,255,255,0.95), 0 0 36px 10px rgba(255,255,255,0.65); background: rgba(255,255,255,1); }
+  100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); background: rgba(255,255,255,0); }
+}
+`;
+
 export default function App() {
   const [persisted] = useState(() => loadPersistedState() || {});
   const [rebirth, setRebirth] = useState(() => persisted.rebirth ?? 0);
+  const [rebirthPulse, setRebirthPulse] = useState(0);
   const [rebirthInput, setRebirthInput] = useState(() => String(persisted.rebirth ?? 0));
   const [cycle, setCycle] = useState(() => persisted.cycle ?? 1);
   const [query, setQuery] = useState('');
@@ -252,7 +262,22 @@ export default function App() {
         )}
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-            <div style={{ background: theme.cardBg, borderRadius: 16, padding: '18px 20px' }}>
+            <div style={{ position: 'relative', background: theme.cardBg, borderRadius: 16, padding: '18px 20px' }}>
+              <style>{REBIRTH_FLASH_CSS}</style>
+              {rebirthPulse > 0 && (
+                <div
+                  key={rebirthPulse}
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    borderRadius: 16,
+                    pointerEvents: 'none',
+                    animation: 'rebirthFlash 900ms ease-out',
+                    zIndex: 5,
+                  }}
+                />
+              )}
               <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
                 {[1, 2, 3, 4].map((n) => (
                   <button
@@ -306,6 +331,7 @@ export default function App() {
                         onClick={() => {
                           setRebirth(nextRow.step);
                           setRebirthInput(String(nextRow.step));
+                          setRebirthPulse((p) => p + 1);
                         }}
                         title={`Mark rebirth ${nextRow.step} complete`}
                         style={{
