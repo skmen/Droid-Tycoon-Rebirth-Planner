@@ -159,34 +159,39 @@ export default function App() {
     return { ...r, expanded, occurrencesText };
   });
 
-  let verdict = null;
-  if (q) {
-    const upcomingMatches = [];
-    const pastMatches = [];
-    rows.forEach((r) => {
-      parseRaw(r.raw).forEach((it) => {
-        if (it.name.toLowerCase().includes(q)) {
-          const entry = { ...it, step: r.step };
-          (r.step > rebirth ? upcomingMatches : pastMatches).push(entry);
-        }
-      });
-    });
-    upcomingMatches.sort((a, b) => a.step - b.step);
-    if (upcomingMatches.length) {
-      const list = upcomingMatches.map((m) => `RB ${m.step} (${m.tier})`).join(', ');
-      verdict = { badge: '⚠ KEEP', bg: theme.sellBg, fg: theme.sellFg, detail: `Needed at: ${list}.` };
-    } else if (pastMatches.length) {
-      verdict = { badge: '✓ SAFE TO SELL', bg: theme.keepBg, fg: theme.keepFg, detail: 'Only needed earlier this cycle — not required again.' };
-    } else {
-      verdict = { badge: '✓ SAFE TO SELL', bg: theme.keepBg, fg: theme.keepFg, detail: `"${query.trim()}" isn't required anywhere in Cycle ${cycle}.` };
-    }
-  }
-
   const droidNamesDatalist = useMemo(() => {
     const allNames = new Set();
     CYCLES.forEach((c) => c.forEach((r) => parseRaw(r.raw).forEach((it) => allNames.add(it.name))));
     return Array.from(allNames).sort();
   }, []);
+
+  let verdict = null;
+  if (q) {
+    const droidExists = droidNamesDatalist.some((name) => name.toLowerCase().includes(q));
+    if (!droidExists) {
+      verdict = { badge: '? UNKNOWN', bg: theme.tableHeaderBg, fg: theme.textMuted, detail: `"${query.trim()}" does not exist.` };
+    } else {
+      const upcomingMatches = [];
+      const pastMatches = [];
+      rows.forEach((r) => {
+        parseRaw(r.raw).forEach((it) => {
+          if (it.name.toLowerCase().includes(q)) {
+            const entry = { ...it, step: r.step };
+            (r.step > rebirth ? upcomingMatches : pastMatches).push(entry);
+          }
+        });
+      });
+      upcomingMatches.sort((a, b) => a.step - b.step);
+      if (upcomingMatches.length) {
+        const list = upcomingMatches.map((m) => `RB ${m.step} (${m.tier})`).join(', ');
+        verdict = { badge: '⚠ KEEP', bg: theme.sellBg, fg: theme.sellFg, detail: `Needed at: ${list}.` };
+      } else if (pastMatches.length) {
+        verdict = { badge: '✓ SAFE TO SELL', bg: theme.keepBg, fg: theme.keepFg, detail: 'Only needed earlier this cycle — not required again.' };
+      } else {
+        verdict = { badge: '✓ SAFE TO SELL', bg: theme.keepBg, fg: theme.keepFg, detail: `"${query.trim()}" isn't required anywhere in Cycle ${cycle}.` };
+      }
+    }
+  }
 
   const sortArrow = (key) => (sortKey === key ? (sortDir === 1 ? ' ▲' : ' ▼') : '');
 
