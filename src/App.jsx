@@ -6,10 +6,10 @@ import SettingsMenu from './SettingsMenu.jsx';
 import { loadPersistedState, savePersistedState } from './storage.js';
 
 // Ads paused site-wide while switching monetization approach — flip this back
-// to re-enable (and restore the "Show ads" row in SettingsMenu below).
+// to re-enable (and restore the "Show ads" row in SettingsMenu and the
+// sidebar layout/AD_SLOT_SIDEBAR unit, both removed from git history).
 const ADS_ENABLED = false;
 const AD_SLOT_TOP = '2218723355';
-const AD_SLOT_SIDEBAR = '2804634020';
 
 const RARITY_ORDER = { COMMON: 0, RARE: 1, EPIC: 2, LEGENDARY: 3, MYTHIC: 4, '—': -1 };
 const TIER_ORDER = { DEFAULT: 0, GOLD: 1, DIAMOND: 2, RAINBOW: 3, BESKAR: 4 };
@@ -251,8 +251,7 @@ export default function App() {
           </div>
         )}
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 18, alignItems: 'flex-start' }}>
-          <div style={{ flex: '2 1 520px', display: 'flex', flexDirection: 'column', gap: 18, minWidth: 0 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 18, maxWidth: 720, width: '100%', margin: '0 auto' }}>
             <div style={{ background: theme.cardBg, borderRadius: 16, padding: '18px 20px' }}>
               <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
                 {[1, 2, 3, 4].map((n) => (
@@ -544,27 +543,7 @@ export default function App() {
                 )}
               </div>
             </div>
-          </div>
 
-          <div style={{ flex: '1 1 240px', display: 'flex', flexDirection: 'column', gap: 18, minWidth: 220 }}>
-            {ADS_ENABLED && showAds && (
-              <div
-                style={{
-                  border: `1px solid ${theme.adBorder}`,
-                  borderRadius: 12,
-                  background: theme.adBg,
-                  padding: 8,
-                  boxSizing: 'border-box',
-                  minHeight: 250,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  overflow: 'hidden',
-                }}
-              >
-                <AdUnit slot={AD_SLOT_SIDEBAR} width={300} height={250} />
-              </div>
-            )}
             <div
               style={{
                 background: theme.cardBg,
@@ -583,7 +562,6 @@ export default function App() {
               </div>
               <div>Higher tiers cover lower ones for the same droid.</div>
             </div>
-          </div>
         </div>
 
         <p style={{ margin: '4px 0 0', fontSize: 11, color: theme.textMuted, textAlign: 'center' }}>
