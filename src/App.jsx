@@ -301,7 +301,31 @@ export default function App() {
                         background: theme.inputBg,
                       }}
                     />
-                    {hasNext && <span>→ {nextRow.step}</span>}
+                    {hasNext && (
+                      <button
+                        onClick={() => {
+                          setRebirth(nextRow.step);
+                          setRebirthInput(String(nextRow.step));
+                        }}
+                        title={`Mark rebirth ${nextRow.step} complete`}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 6,
+                          padding: '4px 14px',
+                          borderRadius: 999,
+                          border: `1px solid ${theme.accent}`,
+                          background: theme.accentSoftBg,
+                          color: theme.accent,
+                          fontFamily: "'JetBrains Mono',monospace",
+                          fontSize: 22,
+                          fontWeight: 800,
+                          cursor: 'pointer',
+                        }}
+                      >
+                        → {nextRow.step}
+                      </button>
+                    )}
                   </div>
                   {hasNext && (
                     <div style={{ fontSize: 13, color: theme.textSecondary }}>
