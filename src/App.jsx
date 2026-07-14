@@ -185,15 +185,32 @@ export default function App() {
 
   let verdict = null;
   if (q) {
-    const droidExists = droidNamesDatalist.some((name) => name.toLowerCase().includes(q));
-    if (!droidExists) {
+    // Substring matches can span multiple distinct droids (e.g. "LO" also matches
+    // "CYCLO-GRAV" and "LOADLIFTER") — blending their occurrences into one verdict
+    // would misattribute another droid's requirements. Only proceed once the query
+    // resolves to exactly one droid, either by exact name or by being an
+    // unambiguous substring; otherwise ask the user to be more specific.
+    const matchingNames = droidNamesDatalist.filter((name) => name.toLowerCase().includes(q));
+    const exactName = droidNamesDatalist.find((name) => name.toLowerCase() === q);
+    const targetName = exactName || (matchingNames.length === 1 ? matchingNames[0] : null);
+
+    if (matchingNames.length === 0) {
       verdict = { badge: '? UNKNOWN', bg: theme.tableHeaderBg, fg: theme.textMuted, detail: `"${query.trim()}" does not exist.` };
+    } else if (!targetName) {
+      const shown = matchingNames.slice(0, 6).join(', ') + (matchingNames.length > 6 ? ', …' : '');
+      verdict = {
+        badge: '? MULTIPLE MATCHES',
+        bg: theme.tableHeaderBg,
+        fg: theme.textMuted,
+        detail: `"${query.trim()}" matches several droids: ${shown}. Type the full name or pick one from the suggestions.`,
+      };
     } else {
       const upcomingMatches = [];
       const pastMatches = [];
+      const targetLower = targetName.toLowerCase();
       rows.forEach((r) => {
         parseRaw(r.raw).forEach((it) => {
-          if (it.name.toLowerCase().includes(q)) {
+          if (it.name.toLowerCase() === targetLower) {
             const entry = { ...it, step: r.step };
             (r.step > rebirth ? upcomingMatches : pastMatches).push(entry);
           }
