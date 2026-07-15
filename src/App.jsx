@@ -12,7 +12,7 @@ const ADS_ENABLED = false;
 const AD_SLOT_TOP = '2218723355';
 
 const RARITY_ORDER = { COMMON: 0, RARE: 1, EPIC: 2, LEGENDARY: 3, MYTHIC: 4, '—': -1 };
-const TIER_ORDER = { DEFAULT: 0, GOLD: 1, DIAMOND: 2, RAINBOW: 3, BESKAR: 4 };
+const TIER_ORDER = { DEFAULT: 0, GOLD: 1, DIAMOND: 2, RAINBOW: 3, BESKAR: 4, GALACTIC: 5 };
 const OUTLINE = '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
 
 function clampRebirth(v) {
@@ -569,6 +569,7 @@ export default function App() {
                   <option value="DIAMOND">Diamond</option>
                   <option value="RAINBOW">Rainbow</option>
                   <option value="BESKAR">Beskar</option>
+                  <option value="GALACTIC">Galactic</option>
                 </select>
               </div>
 

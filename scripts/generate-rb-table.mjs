@@ -15,11 +15,12 @@ const TIER_STYLE = {
   DIAMOND: { bg: '#bfe3fb', fg: '#0c3f66' },
   RAINBOW: { bg: 'linear-gradient(90deg,#ff5757,#ffb347,#ffe066,#5ce65c,#5cb8ff,#a76cf7)', fg: '#ffffff' },
   BESKAR: { bg: 'linear-gradient(135deg,#e8e9eb,#9aa0a6 45%,#c9ccd1)', fg: '#000000' },
+  GALACTIC: { bg: 'linear-gradient(135deg,#1b1035,#4c1d95 40%,#7c3aed 70%,#c4b5fd)', fg: '#ffffff' },
 };
 const OUTLINE = '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
 
 function parseRaw(raw) {
-  const parts = raw.split(/\b(BASE|GOLD|DIAMOND|RAINBOW|BESKAR)\b/).filter((s) => s.trim().length);
+  const parts = raw.split(/\b(BASE|GOLD|DIAMOND|RAINBOW|BESKAR|GALACTIC)\b/).filter((s) => s.trim().length);
   const out = [];
   for (let i = 0; i < parts.length; i += 2) {
     if (parts[i + 1] !== undefined) {
