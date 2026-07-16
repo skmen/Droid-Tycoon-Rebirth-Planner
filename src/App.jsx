@@ -659,28 +659,6 @@ export default function App() {
             </a>
           ))}
         </div>
-
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <a
-            href="https://ko-fi.com/disastron"
-            target="_blank"
-            rel="noopener"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              padding: '11px 20px',
-              borderRadius: 999,
-              background: '#FF5E5B',
-              color: '#fff',
-              fontWeight: 800,
-              fontSize: 14,
-              textDecoration: 'none',
-            }}
-          >
-            <span aria-hidden="true">☕</span> Support on Ko-fi
-          </a>
-        </div>
       </div>
     </div>
   );
