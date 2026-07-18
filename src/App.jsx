@@ -325,7 +325,31 @@ export default function App() {
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 12 }}>
-                <label style={{ fontSize: 12, fontWeight: 600, color: theme.textSecondary }}>Current rebirth level</label>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
+                  <label style={{ fontSize: 12, fontWeight: 600, color: theme.textSecondary }}>Current rebirth level</label>
+                  <button
+                    onClick={() => {
+                      clearTimeout(rebirthTimeoutRef.current);
+                      setRebirth(0);
+                      setRebirthInput('0');
+                      setCycle((c) => (c >= 4 ? 1 : c + 1));
+                    }}
+                    title="Super Rebirth: reset to RB 0 and advance to the next cycle"
+                    style={{
+                      padding: '4px 12px',
+                      borderRadius: 999,
+                      border: `1px solid ${theme.accent}`,
+                      background: theme.accentSoftBg,
+                      color: theme.accent,
+                      fontSize: 11,
+                      fontWeight: 800,
+                      letterSpacing: '0.03em',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    SRB
+                  </button>
+                </div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, fontFamily: "'JetBrains Mono',monospace", fontSize: 26, fontWeight: 800 }}>
                     <span>RB</span>
