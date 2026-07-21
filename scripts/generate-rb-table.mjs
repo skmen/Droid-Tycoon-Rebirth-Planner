@@ -131,6 +131,7 @@ const html = `<!doctype html>
         <a href="/about.html">About</a>
         <a href="/contact.html">Contact</a>
         <a href="/how-to.html">How to use</a>
+        <a href="/calculator.html">Credit Calculator</a>
       </div>
     </div>
   </div>
@@ -149,6 +150,7 @@ const html = `<!doctype html>
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
     <a href="/how-to.html">How to use</a>
+    <a href="/calculator.html">Credit Calculator</a>
   </footer>
 </div>
 <script>

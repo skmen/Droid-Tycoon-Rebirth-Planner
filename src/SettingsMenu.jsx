@@ -63,6 +63,7 @@ export default function SettingsMenu({ theme, dark, onToggleTheme, showAds, onTo
           {adsEnabled && <MenuRow theme={theme} label="Show ads" on={showAds} onClick={onToggleAds} />}
           <div style={{ height: 1, background: theme.border, margin: '4px 2px' }} />
           <MenuLink theme={theme} href="/rb-requirements.html">RB Requirements</MenuLink>
+          <MenuLink theme={theme} href="/calculator.html">Credit Calculator</MenuLink>
         </div>
       )}
     </div>
