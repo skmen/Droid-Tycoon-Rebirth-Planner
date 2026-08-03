@@ -162,6 +162,24 @@
         "credits": "32.00T",
         "unlocks": "",
         "raw": "DIAMOND KX RAINBOW TRI-TEK BESKAR SNOW MOUSE"
+      },
+      {
+        "step": 28,
+        "credits": "45.00T",
+        "unlocks": "",
+        "raw": "GALACTIC PROTO-ROLLER RAINBOW MO-TRAK BESKAR DRFT-R"
+      },
+      {
+        "step": 29,
+        "credits": "68.00T",
+        "unlocks": "",
+        "raw": "GALACTIC MECHA-DROID GALACTIC MONO-WLKR BESKAR IG"
+      },
+      {
+        "step": 30,
+        "credits": "100.00T",
+        "unlocks": "",
+        "raw": "GALACTIC LOADLIFTER GALACTIC B2-RP BESKAR CYCLENS"
       }
     ],
     [
@@ -326,6 +344,24 @@
         "credits": "32.00T",
         "unlocks": "",
         "raw": "DIAMOND LEP RAINBOW LOADLIFTER BESKAR MO-TRAK"
+      },
+      {
+        "step": 28,
+        "credits": "45.00T",
+        "unlocks": "",
+        "raw": "GALACTIC MECHA-DROID RAINBOW SNOW MOUSE BESKAR TRI-TEK"
+      },
+      {
+        "step": 29,
+        "credits": "68.00T",
+        "unlocks": "",
+        "raw": "BESKAR RIC GALACTIC CYCLO-GRAV GALACTIC R7"
+      },
+      {
+        "step": 30,
+        "credits": "100.00T",
+        "unlocks": "",
+        "raw": "GALACTIC OPTI-STRK BESKAR KX GALACTIC DRFT-R"
       }
     ],
     [
@@ -490,6 +526,24 @@
         "credits": "32.00T",
         "unlocks": "",
         "raw": "DIAMOND RIC-1200 RAINBOW IG BESKAR DRFT-R"
+      },
+      {
+        "step": 28,
+        "credits": "45.00T",
+        "unlocks": "",
+        "raw": "RAINBOW RIC GALACTIC BB9 BESKAR MO-TRAK"
+      },
+      {
+        "step": 29,
+        "credits": "68.00T",
+        "unlocks": "",
+        "raw": "GALACTIC MECHA-DROID GALACTIC OPTI-STRK BESKAR IG"
+      },
+      {
+        "step": 30,
+        "credits": "100.00T",
+        "unlocks": "",
+        "raw": "BESKAR LEP GALACTIC R7 GALACTIC DRFT-R"
       }
     ],
     [
@@ -659,7 +713,19 @@
         "step": 28,
         "credits": "45.00T",
         "unlocks": "",
-        "raw": "RAINBOW SNOW MOUSE BESKAR TRI-TEK GALACTIC MECHA-DROID"
+        "raw": "GALACTIC OPTI-STRK RAINBOW IG BESKAR KX"
+      },
+      {
+        "step": 29,
+        "credits": "68.00T",
+        "unlocks": "",
+        "raw": "GALACTIC BB9 GALACTIC R7 BESKAR TRI-TEK"
+      },
+      {
+        "step": 30,
+        "credits": "100.00T",
+        "unlocks": "",
+        "raw": "GALACTIC MONO-WLKR GALACTIC IG BESKAR CYCLENS"
       }
     ]
   ],

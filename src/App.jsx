@@ -18,7 +18,7 @@ const OUTLINE = '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #
 function clampRebirth(v) {
   let n = parseInt(v, 10);
   if (isNaN(n)) n = 0;
-  return Math.max(0, Math.min(27, n));
+  return Math.max(0, Math.min(30, n));
 }
 
 const REBIRTH_FLASH_MS = 900;
@@ -80,7 +80,7 @@ export default function App() {
   const gridCols = isMobile ? '1fr 56px 76px 92px' : '1fr 60px 85px 90px 100px';
 
   const nextRow = rows.find((r) => r.step === rebirth + 1);
-  const isMaxed = rebirth >= 27;
+  const isMaxed = rebirth >= 30;
   const hasNext = !isMaxed && !!nextRow;
 
   const decorate = (it) => {
@@ -356,7 +356,7 @@ export default function App() {
                     <input
                       type="number"
                       min="0"
-                      max="27"
+                      max="30"
                       value={rebirthInput}
                       onChange={(e) => {
                         setRebirthInput(e.target.value);
