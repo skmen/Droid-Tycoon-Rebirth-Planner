@@ -13,6 +13,20 @@ export const TIER_STYLE = {
   KYBER: { bg: 'linear-gradient(135deg,#031b2e,#0ea5e9 45%,#7dd3fc 70%,#ffffff)', fg: '#001a33' },
 };
 
+// Flat, saturated colors for small chart marks (dots/lines) where the full
+// gradient badges above would be muddy at a few pixels across. RAINBOW has
+// no single representative color, so it's special-cased by chart code.
+export const TIER_DOT_COLOR = {
+  DEFAULT: '#9aa0a6',
+  GOLD: '#eab308',
+  DIAMOND: '#38bdf8',
+  RAINBOW: '#a76cf7',
+  BESKAR: '#64748b',
+  GALACTIC: '#8b5cf6',
+  STELLAR: '#2563eb',
+  KYBER: '#16a34a',
+};
+
 export const LIGHT = {
   pageBg: '#f4f5f9', cardBg: '#fff', text: '#1c1f2b', textSecondary: '#6b7280', textMuted: '#9199ab',
   border: '#dfe1ec', inputBg: '#f9fafc', adBg: '#eceefa', adBorder: '#c7cbe0', adText: '#8b8fa8',
