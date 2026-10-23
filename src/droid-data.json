@@ -180,6 +180,66 @@
         "credits": "100.00T",
         "unlocks": "",
         "raw": "GALACTIC LOADLIFTER GALACTIC B2-RP BESKAR CYCLENS"
+      },
+      {
+        "step": 31,
+        "credits": "150T",
+        "unlocks": "",
+        "raw": "STELLAR SEN-TRI BESKAR PROTO-ROLLER BESKAR KX"
+      },
+      {
+        "step": 32,
+        "credits": "230T",
+        "unlocks": "",
+        "raw": "GALACTIC ORB-WALKER GALACTIC OPTI-POD BESKAR RIC"
+      },
+      {
+        "step": 33,
+        "credits": "345T",
+        "unlocks": "",
+        "raw": "STELLAR B1 HEAVY GALACTIC CYCLO-GRAV GALACTIC DRFT-R"
+      },
+      {
+        "step": 34,
+        "credits": "520T",
+        "unlocks": "",
+        "raw": "STELLAR GROUNDMECH STELLAR BB GALACTIC CYCLENS"
+      },
+      {
+        "step": 35,
+        "credits": "778T",
+        "unlocks": "",
+        "raw": "STELLAR BB9 STELLAR IG STELLAR SNOW MOUSE"
+      },
+      {
+        "step": 36,
+        "credits": "1.19Qa",
+        "unlocks": "",
+        "raw": "KYBER BDX EXPLORER KYBER 2BB KYBER A-LT"
+      },
+      {
+        "step": 37,
+        "credits": "2.5Qa",
+        "unlocks": "",
+        "raw": "KYBER B1 HEAVY KYBER GROUNDMECH KYBER BB"
+      },
+      {
+        "step": 38,
+        "credits": "4.5Qa",
+        "unlocks": "",
+        "raw": "KYBER R2 KYBER R6 KYBER BB9"
+      },
+      {
+        "step": 39,
+        "credits": "8Qa",
+        "unlocks": "",
+        "raw": "KYBER R7 KYBER PROTO-ROLLER KYBER IG"
+      },
+      {
+        "step": 40,
+        "credits": "15Qa",
+        "unlocks": "",
+        "raw": "KYBER SNOW MOUSE KYBER DRFT-R KYBER CYCLENS"
       }
     ],
     [
@@ -362,6 +422,66 @@
         "credits": "100.00T",
         "unlocks": "",
         "raw": "GALACTIC OPTI-STRK BESKAR KX GALACTIC DRFT-R"
+      },
+      {
+        "step": 31,
+        "credits": "150T",
+        "unlocks": "",
+        "raw": "STELLAR B2 SUPER BESKAR B2-RP BESKAR LOADLIFTER"
+      },
+      {
+        "step": 32,
+        "credits": "230T",
+        "unlocks": "",
+        "raw": "GALACTIC GUNRUNNER GALACTIC B1 HEAVY BESKAR LEP"
+      },
+      {
+        "step": 33,
+        "credits": "345T",
+        "unlocks": "",
+        "raw": "STELLAR R2 GALACTIC OPTI-STRK GALACTIC KX"
+      },
+      {
+        "step": 34,
+        "credits": "520T",
+        "unlocks": "",
+        "raw": "STELLAR R6 STELLAR LO GALACTIC RIC"
+      },
+      {
+        "step": 35,
+        "credits": "778T",
+        "unlocks": "",
+        "raw": "STELLAR R7 STELLAR DRFT-R STELLAR CYCLENS"
+      },
+      {
+        "step": 36,
+        "credits": "1.19Qa",
+        "unlocks": "",
+        "raw": "KYBER B1 SECURITY KYBER R4 KYBER R9"
+      },
+      {
+        "step": 37,
+        "credits": "2.5Qa",
+        "unlocks": "",
+        "raw": "KYBER LO KYBER TRAK-R KYBER ORB-WALKER"
+      },
+      {
+        "step": 38,
+        "credits": "4.5Qa",
+        "unlocks": "",
+        "raw": "KYBER B2 SUPER KYBER B2 HEAVY KYBER B2-RP"
+      },
+      {
+        "step": 39,
+        "credits": "8Qa",
+        "unlocks": "",
+        "raw": "KYBER MECHA-DROID KYBER CYCLO-GRAV KYBER KX"
+      },
+      {
+        "step": 40,
+        "credits": "15Qa",
+        "unlocks": "",
+        "raw": "KYBER RIC KYBER LOADLIFTER KYBER LEP"
       }
     ],
     [
@@ -544,6 +664,66 @@
         "credits": "100.00T",
         "unlocks": "",
         "raw": "BESKAR LEP GALACTIC R7 GALACTIC DRFT-R"
+      },
+      {
+        "step": 31,
+        "credits": "150T",
+        "unlocks": "",
+        "raw": "STELLAR B2 HEAVY BESKAR MECHA-DROID BESKAR RIC-1200"
+      },
+      {
+        "step": 32,
+        "credits": "230T",
+        "unlocks": "",
+        "raw": "GALACTIC GROUNDMECH GALACTIC BB BESKAR MO-TRAK"
+      },
+      {
+        "step": 33,
+        "credits": "345T",
+        "unlocks": "",
+        "raw": "STELLAR TRAK-R GALACTIC MONO-WLKR GALACTIC LOADLIFTER"
+      },
+      {
+        "step": 34,
+        "credits": "520T",
+        "unlocks": "",
+        "raw": "STELLAR ORB-WALKER STELLAR B2 SUPER GALACTIC LEP"
+      },
+      {
+        "step": 35,
+        "credits": "778T",
+        "unlocks": "",
+        "raw": "STELLAR PROTO-ROLLER STELLAR KX STELLAR RIC"
+      },
+      {
+        "step": 36,
+        "credits": "1.19Qa",
+        "unlocks": "",
+        "raw": "KYBER ARG KYBER SENATE HOVERCAM KYBER BU-4D"
+      },
+      {
+        "step": 37,
+        "credits": "2.5Qa",
+        "unlocks": "",
+        "raw": "KYBER STRIKE-ORB KYBER AMP WALKER KYBER UTIL-TEC"
+      },
+      {
+        "step": 38,
+        "credits": "4.5Qa",
+        "unlocks": "",
+        "raw": "KYBER HAUL-R KYBER LNG-SHOT KYBER OPTI-STRK"
+      },
+      {
+        "step": 39,
+        "credits": "8Qa",
+        "unlocks": "",
+        "raw": "KYBER MONO-WLKR KYBER BB9 KYBER RIC-1200"
+      },
+      {
+        "step": 40,
+        "credits": "15Qa",
+        "unlocks": "",
+        "raw": "KYBER MO-TRAK KYBER TRI-TEK KYBER IG"
       }
     ],
     [
@@ -726,6 +906,550 @@
         "credits": "100.00T",
         "unlocks": "",
         "raw": "GALACTIC MONO-WLKR GALACTIC IG BESKAR CYCLENS"
+      },
+      {
+        "step": 31,
+        "credits": "150T",
+        "unlocks": "",
+        "raw": "STELLAR TRAK-R BESKAR CYCLO-GRAV BESKAR TRI-TEK"
+      },
+      {
+        "step": 32,
+        "credits": "230T",
+        "unlocks": "",
+        "raw": "GALACTIC R2 GALACTIC R6 BESKAR IG"
+      },
+      {
+        "step": 33,
+        "credits": "345T",
+        "unlocks": "",
+        "raw": "STELLAR B2 HEAVY GALACTIC BB9 GALACTIC RIC-1200"
+      },
+      {
+        "step": 34,
+        "credits": "520T",
+        "unlocks": "",
+        "raw": "STELLAR STRIKE-ORB STELLAR AMP WALKER GALACTIC MO-TRAK"
+      },
+      {
+        "step": 35,
+        "credits": "778T",
+        "unlocks": "",
+        "raw": "STELLAR B2-RP STELLAR LOADLIFTER STELLAR LEP"
+      },
+      {
+        "step": 36,
+        "credits": "1.19Qa",
+        "unlocks": "",
+        "raw": "KYBER NAV-EX KYBER BAL-CORE KYBER VECT-ARM"
+      },
+      {
+        "step": 37,
+        "credits": "2.5Qa",
+        "unlocks": "",
+        "raw": "KYBER SEN-TRI KYBER OPTI-POD KYBER GUNRUNNER"
+      },
+      {
+        "step": 38,
+        "credits": "4.5Qa",
+        "unlocks": "",
+        "raw": "KYBER B1 HEAVY KYBER GROUNDMECH KYBER R7"
+      },
+      {
+        "step": 39,
+        "credits": "8Qa",
+        "unlocks": "",
+        "raw": "KYBER PROTO-ROLLER KYBER B2-RP KYBER SNOW MOUSE"
+      },
+      {
+        "step": 40,
+        "credits": "15Qa",
+        "unlocks": "",
+        "raw": "KYBER DRFT-R KYBER CYCLENS KYBER KX"
+      }
+    ],
+    [
+      {
+        "step": 1,
+        "credits": "10K",
+        "unlocks": "",
+        "raw": "BASE ID10 BASE MOUSE BASE GONK"
+      },
+      {
+        "step": 2,
+        "credits": "150K",
+        "unlocks": "",
+        "raw": "BASE 2BB GOLD IMPERIAL PROBE BASE ROLL-R"
+      },
+      {
+        "step": 3,
+        "credits": "975K",
+        "unlocks": "",
+        "raw": "BASE R4 BASE VECT-ARM GOLD BDX EXPLORER"
+      },
+      {
+        "step": 4,
+        "credits": "2.95M",
+        "unlocks": "",
+        "raw": "GOLD R9 GOLD B1 BATTLE GOLD B1 SECURITY"
+      },
+      {
+        "step": 5,
+        "credits": "5.35M",
+        "unlocks": "",
+        "raw": "GOLD BAL-CORE GOLD R4 GOLD R3"
+      },
+      {
+        "step": 6,
+        "credits": "9.85M",
+        "unlocks": "",
+        "raw": "BASE GUNRUNNER DIAMOND 2BB DIAMOND BDX EXPLORER"
+      },
+      {
+        "step": 7,
+        "credits": "14.5M",
+        "unlocks": "",
+        "raw": "DIAMOND ROLL-R DIAMOND R5 GOLD R2"
+      },
+      {
+        "step": 8,
+        "credits": "36M",
+        "unlocks": "",
+        "raw": "GOLD B2 SUPER DIAMOND R8 DIAMOND B1 BATTLE"
+      },
+      {
+        "step": 9,
+        "credits": "89M",
+        "unlocks": "",
+        "raw": "RAINBOW NAV-EX GOLD STRIKE-ORB GOLD AMP WALKER"
+      },
+      {
+        "step": 10,
+        "credits": "220M",
+        "unlocks": "",
+        "raw": "BESKAR IMPERIAL PROBE BASE GROUNDMECH BASE TRAK-R"
+      },
+      {
+        "step": 11,
+        "credits": "550M",
+        "unlocks": "",
+        "raw": "BASE B2 HEAVY BASE B2 SUPER BASE UTIL-TEC"
+      },
+      {
+        "step": 12,
+        "credits": "1.36B",
+        "unlocks": "",
+        "raw": "RAINBOW BAL-CORE GOLD GROUNDMECH GOLD TRAK-R"
+      },
+      {
+        "step": 13,
+        "credits": "3.40B",
+        "unlocks": "",
+        "raw": "GOLD B2 SUPER GOLD B2 HEAVY DIAMOND R2"
+      },
+      {
+        "step": 14,
+        "credits": "8.45B",
+        "unlocks": "",
+        "raw": "DIAMOND GROUNDMECH DIAMOND TRAK-R RAINBOW UTIL-TEC"
+      },
+      {
+        "step": 15,
+        "credits": "21.00B",
+        "unlocks": "",
+        "raw": "DIAMOND B2 HEAVY DIAMOND B2 SUPER BASE B2-RP"
+      },
+      {
+        "step": 16,
+        "credits": "52.00B",
+        "unlocks": "",
+        "raw": "BASE BB9 GOLD R7 GOLD PROTO-ROLLER"
+      },
+      {
+        "step": 17,
+        "credits": "130.00B",
+        "unlocks": "",
+        "raw": "BASE OPTI-STRK GOLD CYCLO-GRAV GOLD MECHA-DROID"
+      },
+      {
+        "step": 18,
+        "credits": "325.00B",
+        "unlocks": "",
+        "raw": "GOLD BB9 GOLD B2-RP DIAMOND R7"
+      },
+      {
+        "step": 19,
+        "credits": "810.00B",
+        "unlocks": "",
+        "raw": "DIAMOND OPTI-STRK DIAMOND CYCLO-GRAV RAINBOW MECHA-DROID"
+      },
+      {
+        "step": 20,
+        "credits": "2.00T",
+        "unlocks": "",
+        "raw": "RAINBOW B2-RP RAINBOW BB9 RAINBOW R7"
+      },
+      {
+        "step": 21,
+        "credits": "3.00T",
+        "unlocks": "",
+        "raw": "BESKAR LO BESKAR STRIKE-ORB BESKAR HAUL-R"
+      },
+      {
+        "step": 22,
+        "credits": "4.50T",
+        "unlocks": "",
+        "raw": "BESKAR SEN-TRI BESKAR R6 BESKAR GUNRUNNER"
+      },
+      {
+        "step": 23,
+        "credits": "6.00T",
+        "unlocks": "",
+        "raw": "BESKAR BB9 BESKAR CYCLO-GRAV BESKAR B2-RP"
+      },
+      {
+        "step": 24,
+        "credits": "9.00T",
+        "unlocks": "",
+        "raw": "BESKAR MONO-WLKR BESKAR OPTI-STRK BASE MO-TRAK"
+      },
+      {
+        "step": 25,
+        "credits": "13.50T",
+        "unlocks": "",
+        "raw": "BESKAR MECHA-DROID BASE RIC GOLD TRI-TEK"
+      },
+      {
+        "step": 26,
+        "credits": "21.00T",
+        "unlocks": "",
+        "raw": "GOLD CYCLENS DIAMOND LEP RAINBOW SNOW MOUSE"
+      },
+      {
+        "step": 27,
+        "credits": "32.00T",
+        "unlocks": "",
+        "raw": "DIAMOND RIC-1200 RAINBOW IG BESKAR LOADLIFTER"
+      },
+      {
+        "step": 28,
+        "credits": "45.00T",
+        "unlocks": "",
+        "raw": "RAINBOW RIC BESKAR MO-TRAK GALACTIC BB9"
+      },
+      {
+        "step": 29,
+        "credits": "68.00T",
+        "unlocks": "",
+        "raw": "BESKAR IG GALACTIC MECHA-DROID GALACTIC OPTI-STRK"
+      },
+      {
+        "step": 30,
+        "credits": "100.00T",
+        "unlocks": "",
+        "raw": "GALACTIC R7 BESKAR LEP GALACTIC CYCLENS"
+      },
+      {
+        "step": 31,
+        "credits": "150T",
+        "unlocks": "",
+        "raw": "STELLAR AMP WALKER BESKAR OPTI-STRK BESKAR SNOW MOUSE"
+      },
+      {
+        "step": 32,
+        "credits": "230T",
+        "unlocks": "",
+        "raw": "GALACTIC LO GALACTIC TRAK-R BESKAR DRFT-R"
+      },
+      {
+        "step": 33,
+        "credits": "345T",
+        "unlocks": "",
+        "raw": "STELLAR UTIL-TEC GALACTIC R7 GALACTIC TRI-TEK"
+      },
+      {
+        "step": 34,
+        "credits": "520T",
+        "unlocks": "",
+        "raw": "STELLAR HAUL-R STELLAR LNG-SHOT GALACTIC IG"
+      },
+      {
+        "step": 35,
+        "credits": "778T",
+        "unlocks": "",
+        "raw": "STELLAR MECHA-DROID STELLAR RIC-1200 STELLAR MO-TRAK"
+      },
+      {
+        "step": 36,
+        "credits": "1.19Qa",
+        "unlocks": "",
+        "raw": "KYBER MOUSE KYBER ROLL-R KYBER HOV-R"
+      },
+      {
+        "step": 37,
+        "credits": "2.5Qa",
+        "unlocks": "",
+        "raw": "KYBER BB KYBER R2 KYBER R6"
+      },
+      {
+        "step": 38,
+        "credits": "4.5Qa",
+        "unlocks": "",
+        "raw": "KYBER LO KYBER TRAK-R KYBER MECHA-DROID"
+      },
+      {
+        "step": 39,
+        "credits": "8Qa",
+        "unlocks": "",
+        "raw": "KYBER CYCLO-GRAV KYBER OPTI-STRK KYBER RIC"
+      },
+      {
+        "step": 40,
+        "credits": "15Qa",
+        "unlocks": "",
+        "raw": "KYBER LOADLIFTER KYBER LEP KYBER RIC-1200"
+      }
+    ],
+    [
+      {
+        "step": 1,
+        "credits": "10K",
+        "unlocks": "",
+        "raw": "BASE GONK BASE MOUSE BASE ID10"
+      },
+      {
+        "step": 2,
+        "credits": "150K",
+        "unlocks": "",
+        "raw": "BASE PIT BASE EG-58 BASE 2BB"
+      },
+      {
+        "step": 3,
+        "credits": "975K",
+        "unlocks": "",
+        "raw": "BASE R3 BASE R4 BASE ROLL-R"
+      },
+      {
+        "step": 4,
+        "credits": "2.95M",
+        "unlocks": "",
+        "raw": "GOLD EG-58 GOLD R9 GOLD B1 SECURITY"
+      },
+      {
+        "step": 5,
+        "credits": "5.35M",
+        "unlocks": "",
+        "raw": "GOLD GONK GOLD R5 GOLD VECT-ARM"
+      },
+      {
+        "step": 6,
+        "credits": "9.85M",
+        "unlocks": "",
+        "raw": "BASE EGL DIAMOND EG-58 DIAMOND 2BB"
+      },
+      {
+        "step": 7,
+        "credits": "14.5M",
+        "unlocks": "",
+        "raw": "BASE KT DIAMOND R4 DIAMOND R9"
+      },
+      {
+        "step": 8,
+        "credits": "36M",
+        "unlocks": "",
+        "raw": "BASE MPH DIAMOND B1 SECURITY DIAMOND NAV-EX"
+      },
+      {
+        "step": 9,
+        "credits": "89M",
+        "unlocks": "",
+        "raw": "DIAMOND GONK GOLD EGL GOLD STRIKE-ORB"
+      },
+      {
+        "step": 10,
+        "credits": "220M",
+        "unlocks": "",
+        "raw": "BASE GROUNDMECH BASE TRAK-R BASE AMP WALKER"
+      },
+      {
+        "step": 11,
+        "credits": "550M",
+        "unlocks": "",
+        "raw": "BASE B2 SUPER BASE HAUL-R BASE R2"
+      },
+      {
+        "step": 12,
+        "credits": "1.36B",
+        "unlocks": "",
+        "raw": "RAINBOW GONK GOLD GROUNDMECH GOLD TRAK-R"
+      },
+      {
+        "step": 13,
+        "credits": "3.40B",
+        "unlocks": "",
+        "raw": "GOLD KT GOLD MPH BASE PROTO-ROLLER"
+      },
+      {
+        "step": 14,
+        "credits": "8.45B",
+        "unlocks": "",
+        "raw": "DIAMOND EGL GOLD B2 SUPER BASE B2-RP"
+      },
+      {
+        "step": 15,
+        "credits": "21.00B",
+        "unlocks": "",
+        "raw": "BASE J09-4MN DIAMOND KT DIAMOND MPH"
+      },
+      {
+        "step": 16,
+        "credits": "52.00B",
+        "unlocks": "",
+        "raw": "BASE PLNK BASE BB9 GOLD R7"
+      },
+      {
+        "step": 17,
+        "credits": "130.00B",
+        "unlocks": "",
+        "raw": "RAINBOW EGL GOLD J09-4MN BASE MECHA-DROID"
+      },
+      {
+        "step": 18,
+        "credits": "325.00B",
+        "unlocks": "",
+        "raw": "RAINBOW KT RAINBOW MPH GOLD PLNK"
+      },
+      {
+        "step": 19,
+        "credits": "810.00B",
+        "unlocks": "",
+        "raw": "DIAMOND J09-4MN GOLD PROTO-ROLLER DIAMOND R7"
+      },
+      {
+        "step": 20,
+        "credits": "2.00T",
+        "unlocks": "",
+        "raw": "RAINBOW PLNK RAINBOW MECHA-DROID RAINBOW B2-RP"
+      },
+      {
+        "step": 21,
+        "credits": "3.00T",
+        "unlocks": "",
+        "raw": "BESKAR GONK BESKAR EGL BESKAR HAUL-R"
+      },
+      {
+        "step": 22,
+        "credits": "4.50T",
+        "unlocks": "",
+        "raw": "BESKAR KT BESKAR GROUNDMECH BESKAR R2"
+      },
+      {
+        "step": 23,
+        "credits": "6.00T",
+        "unlocks": "",
+        "raw": "BESKAR MPH BESKAR J09-4MN BESKAR BB9"
+      },
+      {
+        "step": 24,
+        "credits": "9.00T",
+        "unlocks": "",
+        "raw": "BESKAR PLNK BESKAR PROTO-ROLLER BASE ECG"
+      },
+      {
+        "step": 25,
+        "credits": "13.50T",
+        "unlocks": "",
+        "raw": "BESKAR R7 BASE IG BASE LOADLIFTER"
+      },
+      {
+        "step": 26,
+        "credits": "21.00T",
+        "unlocks": "",
+        "raw": "GOLD MO-TRAK GOLD ECG DIAMOND DRFT-R"
+      },
+      {
+        "step": 27,
+        "credits": "32.00T",
+        "unlocks": "",
+        "raw": "RAINBOW CYCLENS RAINBOW SNOW MOUSE BESKAR TRI-TEK"
+      },
+      {
+        "step": 28,
+        "credits": "45.00T",
+        "unlocks": "",
+        "raw": "GALACTIC EGL GALACTIC J09-4MN GALACTIC BB9"
+      },
+      {
+        "step": 29,
+        "credits": "68.00T",
+        "unlocks": "",
+        "raw": "GALACTIC KT GALACTIC PLNK BESKAR IG"
+      },
+      {
+        "step": 30,
+        "credits": "100.00T",
+        "unlocks": "",
+        "raw": "GALACTIC MPH GALACTIC B2-RP GALACTIC DRFT-R"
+      },
+      {
+        "step": 31,
+        "credits": "150T",
+        "unlocks": "",
+        "raw": "STELLAR EGL BESKAR EG-58 BESKAR SNOW MOUSE"
+      },
+      {
+        "step": 32,
+        "credits": "230T",
+        "unlocks": "",
+        "raw": "GALACTIC ECG GALACTIC TRAK-R BESKAR CYCLENS"
+      },
+      {
+        "step": 33,
+        "credits": "345T",
+        "unlocks": "",
+        "raw": "STELLAR KT GALACTIC CYCLO-GRAV GALACTIC TRI-TEK"
+      },
+      {
+        "step": 34,
+        "credits": "520T",
+        "unlocks": "",
+        "raw": "STELLAR MPH STELLAR HAUL-R GALACTIC IG"
+      },
+      {
+        "step": 35,
+        "credits": "778T",
+        "unlocks": "",
+        "raw": "STELLAR J09-4MN STELLAR PLNK STELLAR ECG"
+      },
+      {
+        "step": 36,
+        "credits": "1.19Qa",
+        "unlocks": "",
+        "raw": "KYBER GONK KYBER EG-58 KYBER ROLL-R"
+      },
+      {
+        "step": 37,
+        "credits": "2.5Qa",
+        "unlocks": "",
+        "raw": "KYBER EGL KYBER R2 KYBER B2 SUPER"
+      },
+      {
+        "step": 38,
+        "credits": "4.5Qa",
+        "unlocks": "",
+        "raw": "KYBER KT KYBER MPH KYBER SNOW MOUSE"
+      },
+      {
+        "step": 39,
+        "credits": "8Qa",
+        "unlocks": "",
+        "raw": "KYBER J09-4MN KYBER CYCLO-GRAV KYBER TRI-TEK"
+      },
+      {
+        "step": 40,
+        "credits": "15Qa",
+        "unlocks": "",
+        "raw": "KYBER PLNK KYBER ECG KYBER DRFT-R"
       }
     ]
   ],
@@ -740,6 +1464,7 @@
     "DRK-1 PROBE": "COMMON",
     "B1 BATTLE": "COMMON",
     "ID10": "COMMON",
+    "IMPERIAL PROBE": "COMMON",
     "BDX EXPLORER": "RARE",
     "ARG": "RARE",
     "SENATE HOVERCAM": "RARE",
@@ -754,6 +1479,7 @@
     "NAV-EX": "RARE",
     "VECT-ARM": "RARE",
     "HOV-R": "RARE",
+    "EG-58": "RARE",
     "GROUNDMECH": "EPIC",
     "LO": "EPIC",
     "AMP WALKER": "EPIC",
@@ -773,6 +1499,9 @@
     "LNG-SHOT": "EPIC",
     "PROTO-ROLLER": "EPIC",
     "GUNRUNNER": "EPIC",
+    "EGL": "EPIC",
+    "KT": "EPIC",
+    "MPH": "EPIC",
     "MECHA-DROID": "LEGENDARY",
     "MONO-WLKR": "LEGENDARY",
     "BB9": "LEGENDARY",
@@ -780,6 +1509,8 @@
     "B2-RP": "LEGENDARY",
     "CYCLO-GRAV": "LEGENDARY",
     "OPTI-STRK": "LEGENDARY",
+    "J09-4MN": "LEGENDARY",
+    "PLNK": "LEGENDARY",
     "BB9000": "MYTHIC",
     "SNOW MOUSE": "MYTHIC",
     "RIC": "MYTHIC",
@@ -791,7 +1522,8 @@
     "MO-TRAK": "MYTHIC",
     "TRI-TEK": "MYTHIC",
     "IG": "MYTHIC",
-    "KX": "MYTHIC"
+    "KX": "MYTHIC",
+    "ECG": "MYTHIC"
   },
   "typeByName": {
     "MOUSE": "Worker",
@@ -827,6 +1559,7 @@
     "BB9": "Astromech",
     "R7": "Astromech",
     "DRK-1 PROBE": "Battle",
+    "IMPERIAL PROBE": "Battle",
     "B1 BATTLE": "Battle",
     "ID10": "Battle",
     "B1 SECURITY": "Battle",
@@ -854,6 +1587,13 @@
     "MO-TRAK": "Astromech",
     "TRI-TEK": "Astromech",
     "IG": "Battle",
-    "KX": "Battle"
+    "KX": "Battle",
+    "EG-58": "Worker",
+    "EGL": "Worker",
+    "KT": "Worker",
+    "MPH": "Astromech",
+    "J09-4MN": "Worker",
+    "PLNK": "Worker",
+    "ECG": "Astromech"
   }
 }

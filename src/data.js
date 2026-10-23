@@ -7,6 +7,8 @@ export const TIER_STYLE = {
   RAINBOW: { bg: 'linear-gradient(90deg,#ff5757,#ffb347,#ffe066,#5ce65c,#5cb8ff,#a76cf7)', fg: '#ffffff' },
   BESKAR: { bg: 'linear-gradient(135deg,#e8e9eb,#9aa0a6 45%,#c9ccd1)', fg: '#000000' },
   GALACTIC: { bg: 'linear-gradient(135deg,#1b1035,#4c1d95 40%,#7c3aed 70%,#c4b5fd)', fg: '#ffffff' },
+  STELLAR: { bg: 'linear-gradient(135deg,#0a1a3f,#1e3a8a 40%,#38bdf8 70%,#e0f2fe)', fg: '#ffffff' },
+  KYBER: { bg: 'linear-gradient(135deg,#031b2e,#0ea5e9 45%,#7dd3fc 70%,#ffffff)', fg: '#001a33' },
 };
 
 export const LIGHT = {
@@ -36,7 +38,7 @@ export const RARITY_COLOR = {
 };
 
 export function parseRaw(raw) {
-  const parts = raw.split(/\b(BASE|GOLD|DIAMOND|RAINBOW|BESKAR|GALACTIC)\b/).filter((s) => s.trim().length);
+  const parts = raw.split(/\b(BASE|GOLD|DIAMOND|RAINBOW|BESKAR|GALACTIC|STELLAR|KYBER)\b/).filter((s) => s.trim().length);
   const out = [];
   for (let i = 0; i < parts.length; i += 2) {
     if (parts[i + 1] !== undefined) {

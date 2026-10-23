@@ -1,3 +1,5 @@
+import { CYCLES } from './data.js';
+
 const STORAGE_KEY = 'droid-tycoon-planner';
 const CALCULATOR_STORAGE_KEY = 'droid-tycoon-calculator';
 
@@ -7,8 +9,8 @@ export function loadPersistedState() {
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     return {
-      rebirth: Number.isInteger(parsed.rebirth) ? Math.max(0, Math.min(27, parsed.rebirth)) : undefined,
-      cycle: [1, 2, 3, 4].includes(parsed.cycle) ? parsed.cycle : undefined,
+      rebirth: Number.isInteger(parsed.rebirth) ? Math.max(0, Math.min(40, parsed.rebirth)) : undefined,
+      cycle: Number.isInteger(parsed.cycle) && parsed.cycle >= 1 && parsed.cycle <= CYCLES.length ? parsed.cycle : undefined,
       dark: typeof parsed.dark === 'boolean' ? parsed.dark : undefined,
       showAds: typeof parsed.showAds === 'boolean' ? parsed.showAds : undefined,
     };

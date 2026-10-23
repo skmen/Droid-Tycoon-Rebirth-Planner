@@ -12,13 +12,13 @@ const ADS_ENABLED = false;
 const AD_SLOT_TOP = '2218723355';
 
 const RARITY_ORDER = { COMMON: 0, RARE: 1, EPIC: 2, LEGENDARY: 3, MYTHIC: 4, '—': -1 };
-const TIER_ORDER = { DEFAULT: 0, GOLD: 1, DIAMOND: 2, RAINBOW: 3, BESKAR: 4, GALACTIC: 5 };
+const TIER_ORDER = { DEFAULT: 0, GOLD: 1, DIAMOND: 2, RAINBOW: 3, BESKAR: 4, GALACTIC: 5, STELLAR: 6, KYBER: 7 };
 const OUTLINE = '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
 
 function clampRebirth(v) {
   let n = parseInt(v, 10);
   if (isNaN(n)) n = 0;
-  return Math.max(0, Math.min(30, n));
+  return Math.max(0, Math.min(40, n));
 }
 
 const REBIRTH_FLASH_MS = 900;
@@ -80,7 +80,7 @@ export default function App() {
   const gridCols = isMobile ? '1fr 56px 76px 92px' : '1fr 60px 85px 90px 100px';
 
   const nextRow = rows.find((r) => r.step === rebirth + 1);
-  const isMaxed = rebirth >= 30;
+  const isMaxed = rebirth >= rows.length;
   const hasNext = !isMaxed && !!nextRow;
 
   const decorate = (it) => {
@@ -304,7 +304,7 @@ export default function App() {
                 />
               )}
               <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
-                {[1, 2, 3, 4].map((n) => (
+                {CYCLES.map((_, i) => i + 1).map((n) => (
                   <button
                     key={n}
                     onClick={() => setCycle(n)}
@@ -332,7 +332,7 @@ export default function App() {
                       clearTimeout(rebirthTimeoutRef.current);
                       setRebirth(0);
                       setRebirthInput('0');
-                      setCycle((c) => (c >= 4 ? 1 : c + 1));
+                      setCycle((c) => (c >= CYCLES.length ? 1 : c + 1));
                     }}
                     title="Super Rebirth: reset to RB 0 and advance to the next cycle"
                     style={{
@@ -356,7 +356,7 @@ export default function App() {
                     <input
                       type="number"
                       min="0"
-                      max="30"
+                      max="40"
                       value={rebirthInput}
                       onChange={(e) => {
                         setRebirthInput(e.target.value);
@@ -594,6 +594,8 @@ export default function App() {
                   <option value="RAINBOW">Rainbow</option>
                   <option value="BESKAR">Beskar</option>
                   <option value="GALACTIC">Galactic</option>
+                  <option value="STELLAR">Stellar</option>
+                  <option value="KYBER">Kyber</option>
                 </select>
               </div>
 
