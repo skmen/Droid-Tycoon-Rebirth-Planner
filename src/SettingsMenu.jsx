@@ -64,6 +64,7 @@ export default function SettingsMenu({ theme, dark, onToggleTheme, showAds, onTo
           <div style={{ height: 1, background: theme.border, margin: '4px 2px' }} />
           <MenuLink theme={theme} href="/rb-requirements.html">RB Requirements</MenuLink>
           <MenuLink theme={theme} href="/calculator.html">Credit Calculator</MenuLink>
+          <MenuLink theme={theme} href="/roadmap.html">Rebirth Roadmap</MenuLink>
         </div>
       )}
     </div>

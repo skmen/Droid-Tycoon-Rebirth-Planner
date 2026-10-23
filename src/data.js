@@ -1,5 +1,7 @@
 import droidData from './droid-data.json';
 
+export const TIER_ORDER = { DEFAULT: 0, GOLD: 1, DIAMOND: 2, RAINBOW: 3, BESKAR: 4, GALACTIC: 5, STELLAR: 6, KYBER: 7 };
+
 export const TIER_STYLE = {
   DEFAULT: { bg: '#eef0f4', fg: '#4b5563' },
   GOLD: { bg: '#fef3c7', fg: '#92620a' },
@@ -47,6 +49,29 @@ export function parseRaw(raw) {
     }
   }
   return out;
+}
+
+// For one cycle's rows, groups every droid requirement by droid name and
+// finds the highest tier that name is ever required at — the tier worth
+// evolving toward early, since the same droid slot gets reused at
+// progressively higher tiers across later rebirth steps.
+export function buildCycleRoadmap(rows) {
+  const byName = new Map();
+  rows.forEach((row) => {
+    parseRaw(row.raw).forEach(({ name, tier }) => {
+      if (!byName.has(name)) byName.set(name, []);
+      byName.get(name).push({ step: row.step, tier });
+    });
+  });
+
+  return Array.from(byName.entries())
+    .map(([name, occurrences]) => {
+      const sorted = [...occurrences].sort((a, b) => a.step - b.step);
+      const maxTier = sorted.reduce((best, o) => (TIER_ORDER[o.tier] > TIER_ORDER[best] ? o.tier : best), sorted[0].tier);
+      const maxTierStep = sorted.find((o) => o.tier === maxTier).step;
+      return { name, occurrences: sorted, firstStep: sorted[0].step, maxTier, maxTierStep };
+    })
+    .sort((a, b) => TIER_ORDER[b.maxTier] - TIER_ORDER[a.maxTier] || a.maxTierStep - b.maxTierStep || a.name.localeCompare(b.name));
 }
 
 // Dev-only safety net: a hand-edit to droid-data.json that adds a droid name

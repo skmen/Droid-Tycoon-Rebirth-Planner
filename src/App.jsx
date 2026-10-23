@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CYCLES, DARK, LIGHT, RARITY_BY_NAME, RARITY_COLOR, TIER_STYLE, TYPE_BY_NAME, parseRaw } from './data.js';
+import { CYCLES, DARK, LIGHT, RARITY_BY_NAME, RARITY_COLOR, TIER_ORDER, TIER_STYLE, TYPE_BY_NAME, parseRaw } from './data.js';
 import TableRow from './TableRow.jsx';
 import AdUnit from './AdUnit.jsx';
 import SettingsMenu from './SettingsMenu.jsx';
@@ -12,7 +12,6 @@ const ADS_ENABLED = false;
 const AD_SLOT_TOP = '2218723355';
 
 const RARITY_ORDER = { COMMON: 0, RARE: 1, EPIC: 2, LEGENDARY: 3, MYTHIC: 4, '—': -1 };
-const TIER_ORDER = { DEFAULT: 0, GOLD: 1, DIAMOND: 2, RAINBOW: 3, BESKAR: 4, GALACTIC: 5, STELLAR: 6, KYBER: 7 };
 const OUTLINE = '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
 
 function clampRebirth(v) {
@@ -679,6 +678,7 @@ export default function App() {
             ['Privacy Policy', '/privacy.html'],
             ['About', '/about.html'],
             ['Contact', '/contact.html'],
+            ['Rebirth Roadmap', '/roadmap.html'],
           ].map(([label, href]) => (
             <a key={href} href={href} style={{ fontSize: 11, color: theme.textMuted, textDecoration: 'underline' }}>
               {label}

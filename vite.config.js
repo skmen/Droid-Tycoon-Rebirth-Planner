@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: 'index.html',
         calculator: 'calculator.html',
+        roadmap: 'roadmap.html',
       },
     },
   },

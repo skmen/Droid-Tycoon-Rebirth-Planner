@@ -226,6 +226,7 @@ export default function Calculator() {
             ['Contact', '/contact.html'],
             ['How to use', '/how-to.html'],
             ['RB Requirements', '/rb-requirements.html'],
+            ['Rebirth Roadmap', '/roadmap.html'],
           ].map(([label, href]) => (
             <a key={href} href={href} style={{ fontSize: 11, color: theme.textMuted, textDecoration: 'underline' }}>
               {label}
