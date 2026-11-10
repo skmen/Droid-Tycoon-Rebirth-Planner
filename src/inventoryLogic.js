@@ -1,9 +1,9 @@
-import { TIER_ORDER, parseRaw } from './data.js';
+import { TIER_ORDER, TYPE_BY_NAME, parseRaw } from './data.js';
 
 export const TIERS = Object.keys(TIER_ORDER).sort((a, b) => TIER_ORDER[a] - TIER_ORDER[b]);
 
 export function allDroidNames(cycles) {
-  return [...new Set(cycles.flatMap((rows) => rows.flatMap((row) => parseRaw(row.raw).map((d) => d.name))))].sort();
+  return [...new Set([...Object.keys(TYPE_BY_NAME), ...cycles.flatMap((rows) => rows.flatMap((row) => parseRaw(row.raw).map((d) => d.name)))])].sort();
 }
 
 export function normalizeInventory(value, names) {

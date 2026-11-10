@@ -1480,6 +1480,7 @@
     "VECT-ARM": "RARE",
     "HOV-R": "RARE",
     "EG-58": "RARE",
+    "SA-5": "RARE",
     "GROUNDMECH": "EPIC",
     "LO": "EPIC",
     "AMP WALKER": "EPIC",
@@ -1502,6 +1503,7 @@
     "EGL": "EPIC",
     "KT": "EPIC",
     "MPH": "EPIC",
+    "LOM": "EPIC",
     "MECHA-DROID": "LEGENDARY",
     "MONO-WLKR": "LEGENDARY",
     "BB9": "LEGENDARY",
@@ -1511,6 +1513,7 @@
     "OPTI-STRK": "LEGENDARY",
     "J09-4MN": "LEGENDARY",
     "PLNK": "LEGENDARY",
+    "PZ": "LEGENDARY",
     "BB9000": "MYTHIC",
     "SNOW MOUSE": "MYTHIC",
     "RIC": "MYTHIC",
@@ -1523,7 +1526,8 @@
     "TRI-TEK": "MYTHIC",
     "IG": "MYTHIC",
     "KX": "MYTHIC",
-    "ECG": "MYTHIC"
+    "ECG": "MYTHIC",
+    "TDA": "MYTHIC"
   },
   "typeByName": {
     "MOUSE": "Worker",
@@ -1572,7 +1576,7 @@
     "STRIKE-ORB": "Battle",
     "HAUL-R": "Battle",
     "LNG-SHOT": "Battle",
-    "PROTO-ROLLER": "Battle",
+    "PROTO-ROLLER": "Worker",
     "GUNRUNNER": "Battle",
     "B2-RP": "Battle",
     "CYCLO-GRAV": "Battle",
@@ -1594,6 +1598,10 @@
     "MPH": "Astromech",
     "J09-4MN": "Worker",
     "PLNK": "Worker",
-    "ECG": "Astromech"
+    "ECG": "Astromech",
+    "SA-5": "Protocol",
+    "LOM": "Protocol",
+    "PZ": "Protocol",
+    "TDA": "Protocol"
   }
 }

@@ -17,6 +17,7 @@ export default function Inventory() {
   const [query, setQuery] = useState('');
   const [type, setType] = useState('ALL');
   const [tier, setTier] = useState('DEFAULT');
+  const [sellOnly, setSellOnly] = useState(false);
   const [rebirthInput, setRebirthInput] = useState(() => String(saved.rebirth ?? 0));
   const theme = dark ? DARK : LIGHT;
 
@@ -36,6 +37,7 @@ export default function Inventory() {
       .sort((a, b) => order[a.action] - order[b.action] || a.name.localeCompare(b.name) || a.copyNumber - b.copyNumber);
   }, [inventory, cycle, rebirth]);
   const counts = rows.reduce((result, row) => ({ ...result, [row.action]: result[row.action] + 1 }), { UPGRADE: 0, KEEP: 0, SELL: 0 });
+  const visibleRows = sellOnly ? rows.filter((row) => row.action === 'SELL') : rows;
 
   const add = (name) => {
     const id = globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`;
@@ -93,10 +95,20 @@ export default function Inventory() {
         <label htmlFor="inventory-search" style={label}>Droid name</label>
         <input id="inventory-search" list="inventory-droid-names" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="e.g. Mono-WLKR, R7, BB9…" style={{ ...field, width: '100%', padding: '11px 14px', fontSize: 14, marginBottom: 12 }} />
         <datalist id="inventory-droid-names">{matches.map((name) => <option key={name} value={name} />)}</datalist>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 10 }}>
-          <label><span style={label}>Type</span><select value={type} onChange={(event) => setType(event.target.value)} style={field}><option value="ALL">All Types</option><option value="Worker">Worker</option><option value="Astromech">Astro</option><option value="Battle">Battle</option><option value="Protocol">Protocol</option></select></label>
-          <label><span style={label}>Tier to add</span><select value={tier} onChange={(event) => setTier(event.target.value)} style={field}>{TIERS.map((t) => <option key={t} value={t}>{t}</option>)}</select></label>
-        </div>
+        <ToggleRow
+          label="Type"
+          options={[['ALL', 'All Types'], ['Worker', 'Worker'], ['Astromech', 'Astro'], ['Battle', 'Battle'], ['Protocol', 'Protocol']]}
+          value={type}
+          onChange={setType}
+          theme={theme}
+        />
+        <ToggleRow
+          label="Tier to add"
+          options={TIERS.map((value) => [value, value])}
+          value={tier}
+          onChange={setTier}
+          theme={theme}
+        />
         <div role="region" aria-label="Droid search results" style={{ maxHeight: 320, overflowY: 'auto', border: `1px solid ${theme.rowBorder}`, borderRadius: 10 }}>
           <div className="inventory-result-grid" style={{ display: 'grid', minWidth: 430, gridTemplateColumns: 'minmax(100px, 1fr) 90px 90px 100px', gap: 6, padding: '9px 13px', background: theme.tableHeaderBg, color: theme.textMuted, fontSize: 10, fontWeight: 700, textTransform: 'uppercase', position: 'sticky', top: 0 }}><span>Droid name</span><span>Type</span><span>Rarity</span><span>Tier</span></div>
           {matches.map((name) => {
@@ -109,16 +121,20 @@ export default function Inventory() {
               {count > 0 && <button type="button" onClick={() => add(name)} aria-label={`Add another ${tier} ${name}`} title="Add another copy" style={{ marginRight: 8, border: `1px solid ${theme.keepFg}`, borderRadius: 6, background: theme.keepBg, color: theme.keepFg, fontWeight: 800, cursor: 'pointer' }}>+</button>}
             </div>;
           })}
-          {matches.length === 0 && <div style={{ padding: '18px 13px', textAlign: 'center', fontSize: 12, color: theme.textMuted }}>{type === 'Protocol' ? 'No Protocol droids are in the current catalog.' : 'No matching droids.'}</div>}
+          {matches.length === 0 && <div style={{ padding: '18px 13px', textAlign: 'center', fontSize: 12, color: theme.textMuted }}>No matching droids.</div>}
         </div>
       </section>
 
       <section style={card}>
-        <h2 style={{ fontSize: 14, margin: '0 0 4px' }}>Your inventory</h2>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 10, marginBottom: 4 }}>
+          <h2 style={{ fontSize: 14, margin: 0 }}>Your inventory</h2>
+          <button type="button" aria-pressed={sellOnly} onClick={() => setSellOnly((current) => !current)} style={{ padding: '7px 12px', borderRadius: 9, border: `1px solid ${sellOnly ? theme.sellFg : theme.pillBorder}`, background: sellOnly ? theme.sellBg : theme.pillBg, color: sellOnly ? theme.sellFg : theme.text, fontSize: 12, fontWeight: 700, cursor: 'pointer' }}>Show only droids to sell {sellOnly ? '✓' : ''}</button>
+        </div>
         <p style={{ fontSize: 12, color: theme.textMuted, margin: '0 0 14px' }}>{inventory.length} droids · {counts.UPGRADE} to upgrade · {counts.KEEP} to keep · {counts.SELL} to sell</p>
         {rows.length === 0 ? <p style={{ fontSize: 13, color: theme.textSecondary, textAlign: 'center', padding: '20px 0' }}>Your inventory is empty. Add a droid above to get a recommendation.</p> :
+          visibleRows.length === 0 ? <p style={{ fontSize: 13, color: theme.textSecondary, textAlign: 'center', padding: '20px 0' }}>No droids to sell at this rebirth level.</p> :
           <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
-            {rows.map((d) => {
+            {visibleRows.map((d) => {
               const color = d.action === 'SELL' ? theme.sellFg : d.action === 'KEEP' ? theme.keepFg : theme.accent;
               const background = d.action === 'SELL' ? theme.sellBg : d.action === 'KEEP' ? theme.keepBg : theme.accentSoftBg;
               return <article key={d.id} className="inventory-row" style={{ display: 'grid', gridTemplateColumns: 'minmax(140px, 1fr) minmax(170px, 1.5fr) auto', gap: 12, alignItems: 'center', padding: '13px 14px', border: `1px solid ${theme.border}`, borderRadius: 12 }}>
@@ -136,6 +152,27 @@ export default function Inventory() {
           </div>}
       </section>
       <p style={{ fontSize: 11, color: theme.textMuted, textAlign: 'center', lineHeight: 1.5 }}>Higher tiers cover lower requirements. One copy of a named droid is enough for the current rebirth data. Verify requirements at the Rebirth Station before selling.</p>
+    </div>
+  </div>;
+}
+
+function ToggleRow({ label, options, value, onChange, theme }) {
+  return <div role="group" aria-label={label} style={{ marginBottom: 12 }}>
+    <div style={{ marginBottom: 6, fontSize: 11, fontWeight: 700, color: theme.textSecondary }}>{label}</div>
+    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+      {options.map(([optionValue, text]) => <button
+        key={optionValue}
+        type="button"
+        aria-pressed={value === optionValue}
+        onClick={() => onChange(optionValue)}
+        style={{
+          padding: '9px 12px', borderRadius: 9,
+          border: `1px solid ${value === optionValue ? theme.accent : theme.pillBorder}`,
+          background: value === optionValue ? theme.accent : theme.pillBg,
+          color: value === optionValue ? '#fff' : theme.text,
+          fontWeight: 700, fontSize: 12, cursor: 'pointer',
+        }}
+      >{text}</button>)}
     </div>
   </div>;
 }

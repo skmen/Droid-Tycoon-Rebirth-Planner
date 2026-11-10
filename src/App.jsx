@@ -177,7 +177,7 @@ export default function App() {
   });
 
   const droidNamesDatalist = useMemo(() => {
-    const allNames = new Set();
+    const allNames = new Set(Object.keys(TYPE_BY_NAME));
     CYCLES.forEach((c) => c.forEach((r) => parseRaw(r.raw).forEach((it) => allNames.add(it.name))));
     return Array.from(allNames).sort();
   }, []);
