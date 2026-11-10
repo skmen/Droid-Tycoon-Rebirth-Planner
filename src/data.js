@@ -9,8 +9,8 @@ export const TIER_STYLE = {
   RAINBOW: { bg: 'linear-gradient(90deg,#ff5757,#ffb347,#ffe066,#5ce65c,#5cb8ff,#a76cf7)', fg: '#ffffff' },
   BESKAR: { bg: 'linear-gradient(135deg,#e8e9eb,#9aa0a6 45%,#c9ccd1)', fg: '#000000' },
   GALACTIC: { bg: 'linear-gradient(135deg,#1b1035,#4c1d95 40%,#7c3aed 70%,#c4b5fd)', fg: '#ffffff' },
-  STELLAR: { bg: 'linear-gradient(135deg,#0a1a3f,#1e3a8a 40%,#38bdf8 70%,#e0f2fe)', fg: '#ffffff' },
-  KYBER: { bg: 'linear-gradient(135deg,#031b2e,#0ea5e9 45%,#7dd3fc 70%,#ffffff)', fg: '#001a33' },
+  STELLAR: { bg: 'linear-gradient(125deg,#fff5ca 0%,#c58d28 28%,#fff0a6 52%,#a46e1d 76%,#f7d978 100%)', fg: '#402600' },
+  KYBER: { bg: 'linear-gradient(125deg,#eceff0 0%,#a7c9b2 34%,#8eafc7 67%,#aa98bd 100%)', fg: '#19283a' },
 };
 
 // Flat, saturated colors for small chart marks (dots/lines) where the full
@@ -23,8 +23,8 @@ export const TIER_DOT_COLOR = {
   RAINBOW: '#a76cf7',
   BESKAR: '#64748b',
   GALACTIC: '#8b5cf6',
-  STELLAR: '#2563eb',
-  KYBER: '#16a34a',
+  STELLAR: '#d4a13d',
+  KYBER: '#849cb1',
 };
 
 export const LIGHT = {

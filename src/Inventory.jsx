@@ -4,7 +4,7 @@ import { allDroidNames, normalizeInventory, recommendInventory, TIERS } from './
 import { loadInventoryState, loadPersistedState, saveInventoryState, savePersistedState } from './storage.js';
 import SettingsMenu from './SettingsMenu.jsx';
 
-const order = { UPGRADE: 0, KEEP: 1, SELL: 2 };
+const order = { FUSE: 0, UPGRADE: 1, KEEP: 2, SELL: 3 };
 const outline = '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
 
 export default function Inventory() {
@@ -36,7 +36,7 @@ export default function Inventory() {
       })
       .sort((a, b) => order[a.action] - order[b.action] || a.name.localeCompare(b.name) || a.copyNumber - b.copyNumber);
   }, [inventory, cycle, rebirth]);
-  const counts = rows.reduce((result, row) => ({ ...result, [row.action]: result[row.action] + 1 }), { UPGRADE: 0, KEEP: 0, SELL: 0 });
+  const counts = rows.reduce((result, row) => ({ ...result, [row.action]: result[row.action] + 1 }), { FUSE: 0, UPGRADE: 0, KEEP: 0, SELL: 0 });
   const visibleRows = sellOnly ? rows.filter((row) => row.action === 'SELL') : rows;
 
   const add = (name) => {
@@ -130,19 +130,22 @@ export default function Inventory() {
           <h2 style={{ fontSize: 14, margin: 0 }}>Your inventory</h2>
           <button type="button" aria-pressed={sellOnly} onClick={() => setSellOnly((current) => !current)} style={{ padding: '7px 12px', borderRadius: 9, border: `1px solid ${sellOnly ? theme.sellFg : theme.pillBorder}`, background: sellOnly ? theme.sellBg : theme.pillBg, color: sellOnly ? theme.sellFg : theme.text, fontSize: 12, fontWeight: 700, cursor: 'pointer' }}>Show only droids to sell {sellOnly ? '✓' : ''}</button>
         </div>
-        <p style={{ fontSize: 12, color: theme.textMuted, margin: '0 0 14px' }}>{inventory.length} droids · {counts.UPGRADE} to upgrade · {counts.KEEP} to keep · {counts.SELL} to sell</p>
+        <p style={{ fontSize: 12, color: theme.textMuted, margin: '0 0 14px' }}>{inventory.length} droids · {counts.FUSE} fusion-ready · {counts.UPGRADE} to upgrade · {counts.KEEP} to keep · {counts.SELL} to sell</p>
         {rows.length === 0 ? <p style={{ fontSize: 13, color: theme.textSecondary, textAlign: 'center', padding: '20px 0' }}>Your inventory is empty. Add a droid above to get a recommendation.</p> :
           visibleRows.length === 0 ? <p style={{ fontSize: 13, color: theme.textSecondary, textAlign: 'center', padding: '20px 0' }}>No droids to sell at this rebirth level.</p> :
           <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
             {visibleRows.map((d) => {
-              const color = d.action === 'SELL' ? theme.sellFg : d.action === 'KEEP' ? theme.keepFg : theme.accent;
-              const background = d.action === 'SELL' ? theme.sellBg : d.action === 'KEEP' ? theme.keepBg : theme.accentSoftBg;
-              return <article key={d.id} className="inventory-row" style={{ display: 'grid', gridTemplateColumns: 'minmax(140px, 1fr) minmax(170px, 1.5fr) auto', gap: 12, alignItems: 'center', padding: '13px 14px', border: `1px solid ${theme.border}`, borderRadius: 12 }}>
-                <div style={{ minWidth: 0 }}><strong style={{ display: 'block', fontSize: 13, marginBottom: 3, overflow: 'hidden', textOverflow: 'ellipsis' }}>{d.name}</strong>
-                  {d.copyCount > 1 && <span style={{ display: 'block', fontSize: 10, color: theme.textMuted, marginBottom: 6 }}>Copy {d.copyNumber} of {d.copyCount}</span>}
-                  <select aria-label={`Tier for ${d.name}${d.copyCount > 1 ? ` copy ${d.copyNumber}` : ''}`} value={d.tier} onChange={(event) => updateTier(d.id, event.target.value)} style={{ ...field, width: '100%', maxWidth: 150, background: TIER_STYLE[d.tier].bg, color: TIER_STYLE[d.tier].fg, textShadow: d.tier === 'RAINBOW' ? outline : 'none', fontWeight: 800 }}>{TIERS.map((t) => <option key={t}>{t}</option>)}</select>
+              const color = d.action === 'SELL' ? theme.sellFg : d.action === 'KEEP' ? theme.keepFg : d.action === 'FUSE' ? '#9a6700' : theme.accent;
+              const background = d.action === 'SELL' ? theme.sellBg : d.action === 'KEEP' ? theme.keepBg : d.action === 'FUSE' ? '#fef3c7' : theme.accentSoftBg;
+              return <article key={d.id} className="inventory-row" style={{ display: 'grid', gridTemplateColumns: 'minmax(240px, 1fr) minmax(180px, 1.3fr) auto', gap: 10, alignItems: 'center', padding: '9px 12px', border: `1px solid ${theme.border}`, borderRadius: 12 }}>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <strong title={d.name} style={{ flex: 1, minWidth: 0, fontSize: 13, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{d.name}</strong>
+                    <select aria-label={`Tier for ${d.name}${d.copyCount > 1 ? ` copy ${d.copyNumber}` : ''}`} value={d.tier} onChange={(event) => updateTier(d.id, event.target.value)} style={{ ...field, minHeight: 30, width: 108, flexShrink: 0, padding: '4px 6px', background: TIER_STYLE[d.tier].bg, color: TIER_STYLE[d.tier].fg, textShadow: d.tier === 'RAINBOW' ? outline : 'none', fontSize: 10, fontWeight: 800 }}>{TIERS.map((t) => <option key={t}>{t}</option>)}</select>
+                  </div>
+                  {d.copyCount > 1 && <span style={{ display: 'block', fontSize: 10, color: theme.textMuted, marginTop: 3 }}>Copy {d.copyNumber} of {d.copyCount}</span>}
                 </div>
-                <div><span style={{ display: 'inline-block', padding: '4px 9px', borderRadius: 999, background, color, fontSize: 10, fontWeight: 800 }}>{d.action === 'UPGRADE' ? 'KEEP & UPGRADE' : d.action}</span>
+                <div><span style={{ display: 'inline-block', padding: '4px 9px', borderRadius: 999, background, color, fontSize: 10, fontWeight: 800 }}>{d.action === 'UPGRADE' ? 'KEEP & UPGRADE' : d.action === 'FUSE' ? 'FUSE 3' : d.action}</span>
                   <div style={{ fontSize: 12, marginTop: 6, color: theme.text }}>{d.reason}</div>
                   {d.next && <div style={{ fontSize: 11, marginTop: 4, color: theme.textMuted }}>Next needed: RB {d.next.step} ({d.next.tier}) · Target: {d.target}</div>}
                 </div>

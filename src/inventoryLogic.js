@@ -1,4 +1,4 @@
-import { TIER_ORDER, TYPE_BY_NAME, parseRaw } from './data.js';
+import { RARITY_BY_NAME, TIER_ORDER, TYPE_BY_NAME, parseRaw } from './data.js';
 
 export const TIERS = Object.keys(TIER_ORDER).sort((a, b) => TIER_ORDER[a] - TIER_ORDER[b]);
 
@@ -20,6 +20,11 @@ export function normalizeInventory(value, names) {
 
 export function recommendInventory(inventory, rows, rebirth) {
   const requirements = new Map();
+  const fusionGroups = new Map();
+  for (const d of inventory) {
+    const key = `${d.name}\u0000${RARITY_BY_NAME[d.name]}\u0000${d.tier}`;
+    fusionGroups.set(key, (fusionGroups.get(key) || 0) + 1);
+  }
   for (const row of rows) {
     if (row.step <= rebirth) continue;
     for (const d of parseRaw(row.raw)) {
@@ -33,6 +38,12 @@ export function recommendInventory(inventory, rows, rebirth) {
     if (!previous || TIER_ORDER[d.tier] > TIER_ORDER[previous.tier]) best.set(d.name, d);
   }
   return inventory.map((d) => {
+    const fusionCount = fusionGroups.get(`${d.name}\u0000${RARITY_BY_NAME[d.name]}\u0000${d.tier}`);
+    if (fusionCount >= 3) return {
+      ...d,
+      action: 'FUSE',
+      reason: `${fusionCount} matching ${d.tier} copies — fuse ${Math.floor(fusionCount / 3) === 1 ? 'a set of 3' : `${Math.floor(fusionCount / 3)} sets of 3`} before selling extras.`,
+    };
     const needed = requirements.get(d.name) || [];
     if (!needed.length) return { ...d, action: 'SELL', reason: 'No remaining rebirth needs this droid.' };
     if (best.get(d.name).id !== d.id) return { ...d, action: 'SELL', reason: `Duplicate — keep your ${best.get(d.name).tier} copy for rebirths.` };
