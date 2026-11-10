@@ -264,6 +264,9 @@ export default function App() {
           <p style={{ margin: 0, fontSize: 13, color: theme.textSecondary, maxWidth: 520 }}>
             The unofficial rebirth tool for Droid Tycoon! Plan your next rebirth and check which droids to keep, sell or upgrade.
           </p>
+          <a href="/inventory.html" style={{ alignSelf: 'flex-start', marginTop: 7, padding: '8px 12px', borderRadius: 9, background: theme.accentSoftBg, color: theme.accent, fontSize: 12, fontWeight: 800, textDecoration: 'none' }}>
+            Manage your droid inventory →
+          </a>
         </div>
 
         {ADS_ENABLED && showAds && !isMobile && (
@@ -678,6 +681,7 @@ export default function App() {
             ['Privacy Policy', '/privacy.html'],
             ['About', '/about.html'],
             ['Contact', '/contact.html'],
+            ['Droid Inventory', '/inventory.html'],
             ['Rebirth Roadmap', '/roadmap.html'],
           ].map(([label, href]) => (
             <a key={href} href={href} style={{ fontSize: 11, color: theme.textMuted, textDecoration: 'underline' }}>

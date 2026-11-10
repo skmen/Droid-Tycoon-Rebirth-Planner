@@ -2,6 +2,7 @@ import { CYCLES } from './data.js';
 
 const STORAGE_KEY = 'droid-tycoon-planner';
 const CALCULATOR_STORAGE_KEY = 'droid-tycoon-calculator';
+const INVENTORY_STORAGE_KEY = 'droid-tycoon-inventory';
 
 export function loadPersistedState() {
   try {
@@ -21,9 +22,27 @@ export function loadPersistedState() {
 
 export function savePersistedState(state) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    const current = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...current, ...state }));
   } catch {
     // localStorage unavailable (e.g. private browsing quota) — persistence is best-effort
+  }
+}
+
+export function loadInventoryState() {
+  try {
+    const value = JSON.parse(localStorage.getItem(INVENTORY_STORAGE_KEY) || '[]');
+    return Array.isArray(value) ? value : [];
+  } catch {
+    return [];
+  }
+}
+
+export function saveInventoryState(value) {
+  try {
+    localStorage.setItem(INVENTORY_STORAGE_KEY, JSON.stringify(value));
+  } catch {
+    // Persistence is best-effort when localStorage is unavailable.
   }
 }
 

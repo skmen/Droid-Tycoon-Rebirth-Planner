@@ -9,6 +9,7 @@ export default defineConfig({
         main: 'index.html',
         calculator: 'calculator.html',
         roadmap: 'roadmap.html',
+        inventory: 'inventory.html',
       },
     },
   },

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Droid Inventory — Droid Tycoon RB Planner</title>
+<meta name="description" content="Track your Droid Tycoon droids and see which to keep, upgrade, or sell for future rebirths." />
+<link rel="canonical" href="https://nextrebirth.app/inventory.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', system-ui, sans-serif; }
+@media (max-width: 600px) {
+  .inventory-form { grid-template-columns: 1fr !important; }
+  .inventory-row { grid-template-columns: minmax(0, 1fr) auto !important; }
+  .inventory-row > div:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="module" src="/src/inventory-main.jsx"></script>
+</body>
+</html>
