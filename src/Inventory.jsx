@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { CYCLES, DARK, LIGHT, TIER_STYLE } from './data.js';
+import { CYCLES, DARK, LIGHT, RARITY_BY_NAME, RARITY_COLOR, TIER_STYLE, TYPE_BY_NAME } from './data.js';
 import { allDroidNames, normalizeInventory, recommendInventory, TIERS } from './inventoryLogic.js';
 import { loadInventoryState, loadPersistedState, saveInventoryState, savePersistedState } from './storage.js';
 import SettingsMenu from './SettingsMenu.jsx';
@@ -14,8 +14,10 @@ export default function Inventory() {
   const [cycle, setCycle] = useState(() => saved.cycle ?? 1);
   const [rebirth, setRebirth] = useState(() => saved.rebirth ?? 0);
   const [inventory, setInventory] = useState(() => normalizeInventory(loadInventoryState(), names));
-  const [name, setName] = useState('');
+  const [query, setQuery] = useState('');
+  const [type, setType] = useState('ALL');
   const [tier, setTier] = useState('DEFAULT');
+  const [rebirthInput, setRebirthInput] = useState(() => String(saved.rebirth ?? 0));
   const theme = dark ? DARK : LIGHT;
 
   useEffect(() => savePersistedState({ dark, cycle, rebirth }), [dark, cycle, rebirth]);
@@ -35,13 +37,19 @@ export default function Inventory() {
   }, [inventory, cycle, rebirth]);
   const counts = rows.reduce((result, row) => ({ ...result, [row.action]: result[row.action] + 1 }), { UPGRADE: 0, KEEP: 0, SELL: 0 });
 
-  const add = (event) => {
-    event.preventDefault();
-    if (!names.includes(name)) return;
+  const add = (name) => {
     const id = globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`;
     setInventory((current) => [...current, { id, name, tier }]);
-    setName('');
   };
+
+  const toggle = (name) => {
+    const owned = inventory.find((d) => d.name === name && d.tier === tier);
+    if (owned) remove(owned.id);
+    else add(name);
+  };
+
+  const matches = names.filter((name) => name.toLowerCase().includes(query.trim().toLowerCase()) && (type === 'ALL' || TYPE_BY_NAME[name] === type));
+  const nextRow = CYCLES[cycle - 1].find((row) => row.step === rebirth + 1);
 
   const updateTier = (id, value) => setInventory((current) => current.map((d) => d.id === id ? { ...d, tier: value } : d));
   const remove = (id) => setInventory((current) => current.filter((d) => d.id !== id));
@@ -63,20 +71,46 @@ export default function Inventory() {
       <section style={card}>
         <h2 style={{ fontSize: 14, margin: '0 0 4px' }}>Rebirth progress</h2>
         <p style={{ fontSize: 12, color: theme.textMuted, margin: '0 0 12px' }}>Shared with your planner. RB is the last rebirth you completed.</p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'end', gap: 12 }}>
-          <label><span style={label}>Cycle</span><select value={cycle} onChange={(event) => setCycle(Number(event.target.value))} style={field}>{CYCLES.map((_, i) => <option key={i} value={i + 1}>Cycle {i + 1}</option>)}</select></label>
-          <label><span style={label}>Completed RB</span><input type="number" min="0" max="40" value={rebirth} onChange={(event) => setRebirth(Math.max(0, Math.min(40, Number.parseInt(event.target.value, 10) || 0)))} style={{ ...field, width: 96 }} /></label>
+        <div style={{ display: 'flex', gap: 6, marginBottom: 16, flexWrap: 'wrap' }}>
+          {CYCLES.map((_, i) => i + 1).map((n) => <button key={n} type="button" onClick={() => setCycle(n)} style={{ padding: '9px 15px', borderRadius: 9, border: `1px solid ${n === cycle ? theme.accent : theme.pillBorder}`, background: n === cycle ? theme.accent : theme.pillBg, color: n === cycle ? '#fff' : theme.text, fontWeight: 700, fontSize: 13, cursor: 'pointer' }}>Cycle {n}</button>)}
         </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+          <label htmlFor="inventory-rebirth" style={{ fontSize: 12, fontWeight: 600, color: theme.textSecondary }}>Current rebirth level</label>
+          <button type="button" title="Super Rebirth: reset to RB 0 and advance to the next cycle" onClick={() => { setRebirth(0); setRebirthInput('0'); setCycle((current) => current >= CYCLES.length ? 1 : current + 1); }} style={{ padding: '4px 12px', borderRadius: 999, border: `1px solid ${theme.accent}`, background: theme.accentSoftBg, color: theme.accent, fontSize: 11, fontWeight: 800, cursor: 'pointer' }}>SRB</button>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, fontFamily: "'JetBrains Mono',monospace", fontSize: 26, fontWeight: 800, marginTop: 6 }}>
+          <span>RB</span>
+          <input id="inventory-rebirth" type="number" min="0" max="40" value={rebirthInput} onChange={(event) => { setRebirthInput(event.target.value); setRebirth(Math.max(0, Math.min(40, Number.parseInt(event.target.value, 10) || 0))); }} onBlur={() => setRebirthInput(String(rebirth))} style={{ ...field, width: 76, padding: '2px 10px', fontSize: 26, fontWeight: 800, fontFamily: "'JetBrains Mono',monospace" }} />
+          {nextRow && <button type="button" title={`Mark rebirth ${nextRow.step} complete`} onClick={() => { setRebirth(nextRow.step); setRebirthInput(String(nextRow.step)); }} style={{ padding: '4px 14px', borderRadius: 999, border: `1px solid ${theme.accent}`, background: theme.accentSoftBg, color: theme.accent, fontSize: 22, fontWeight: 800, fontFamily: "'JetBrains Mono',monospace", cursor: 'pointer' }}>→ {nextRow.step}</button>}
+        </div>
+        {nextRow && <div style={{ fontSize: 13, color: theme.textSecondary, marginTop: 8 }}>RB {nextRow.step} needs <strong style={{ color: theme.text }}>{nextRow.credits}</strong> credits</div>}
+        {!nextRow && <div style={{ fontSize: 13, color: theme.accent, marginTop: 8 }}>Cycle complete — Super Rebirth to advance.</div>}
       </section>
 
       <section style={card}>
         <h2 style={{ fontSize: 14, margin: '0 0 4px' }}>Add a droid</h2>
-        <p style={{ fontSize: 12, color: theme.textMuted, margin: '0 0 12px' }}>Add each copy separately. Change its tier here when you upgrade it.</p>
-        <form onSubmit={add} className="inventory-form" style={{ display: 'grid', gridTemplateColumns: 'minmax(160px, 1fr) minmax(120px, 0.45fr) auto', gap: 10, alignItems: 'end' }}>
-          <label style={{ minWidth: 0 }}><span style={label}>Droid</span><select required value={name} onChange={(event) => setName(event.target.value)} style={{ ...field, width: '100%' }}><option value="">Choose a droid…</option>{names.map((n) => <option key={n} value={n}>{n}</option>)}</select></label>
-          <label><span style={label}>Current tier</span><select value={tier} onChange={(event) => setTier(event.target.value)} style={{ ...field, width: '100%' }}>{TIERS.map((t) => <option key={t}>{t}</option>)}</select></label>
-          <button type="submit" style={{ ...field, padding: '9px 18px', border: 'none', background: theme.accent, color: '#fff', fontWeight: 800, cursor: 'pointer' }}>+ Add</button>
-        </form>
+        <p style={{ fontSize: 12, color: theme.textMuted, margin: '0 0 12px' }}>Search by name, choose a type and tier, then click a result to add or remove it.</p>
+        <label htmlFor="inventory-search" style={label}>Droid name</label>
+        <input id="inventory-search" list="inventory-droid-names" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="e.g. Mono-WLKR, R7, BB9…" style={{ ...field, width: '100%', padding: '11px 14px', fontSize: 14, marginBottom: 12 }} />
+        <datalist id="inventory-droid-names">{matches.map((name) => <option key={name} value={name} />)}</datalist>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 10 }}>
+          <label><span style={label}>Type</span><select value={type} onChange={(event) => setType(event.target.value)} style={field}><option value="ALL">All Types</option><option value="Worker">Worker</option><option value="Astromech">Astro</option><option value="Battle">Battle</option><option value="Protocol">Protocol</option></select></label>
+          <label><span style={label}>Tier to add</span><select value={tier} onChange={(event) => setTier(event.target.value)} style={field}>{TIERS.map((t) => <option key={t} value={t}>{t}</option>)}</select></label>
+        </div>
+        <div role="region" aria-label="Droid search results" style={{ maxHeight: 320, overflowY: 'auto', border: `1px solid ${theme.rowBorder}`, borderRadius: 10 }}>
+          <div className="inventory-result-grid" style={{ display: 'grid', minWidth: 430, gridTemplateColumns: 'minmax(100px, 1fr) 90px 90px 100px', gap: 6, padding: '9px 13px', background: theme.tableHeaderBg, color: theme.textMuted, fontSize: 10, fontWeight: 700, textTransform: 'uppercase', position: 'sticky', top: 0 }}><span>Droid name</span><span>Type</span><span>Rarity</span><span>Tier</span></div>
+          {matches.map((name) => {
+            const count = inventory.filter((d) => d.name === name && d.tier === tier).length;
+            const rarity = RARITY_BY_NAME[name] || '—';
+            return <div key={name} style={{ display: 'flex', minWidth: 430, alignItems: 'center', borderTop: `1px solid ${theme.rowBorder}`, background: count ? theme.keepBg : 'transparent' }}>
+              <button type="button" onClick={() => toggle(name)} aria-label={`${count ? 'Remove one' : 'Add'} ${tier} ${name}${count ? ` (${count} owned)` : ''}`} className="inventory-result-grid" style={{ flex: 1, minWidth: 0, display: 'grid', gridTemplateColumns: 'minmax(100px, 1fr) 90px 90px 100px', gap: 6, alignItems: 'center', padding: '9px 13px', border: 0, background: 'transparent', color: theme.text, textAlign: 'left', fontSize: 12, cursor: 'pointer' }}>
+                <strong style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}{count > 0 && <span style={{ color: theme.keepFg }}> ✓ {count > 1 ? `×${count}` : ''}</span>}</strong><span>{TYPE_BY_NAME[name] || '—'}</span><span style={{ color: rarity === 'COMMON' && dark ? '#fff' : RARITY_COLOR[rarity] || theme.textMuted, fontWeight: 700 }}>{rarity}</span><span style={{ padding: '3px 6px', borderRadius: 6, background: TIER_STYLE[tier].bg, color: TIER_STYLE[tier].fg, fontSize: 10, fontWeight: 700, textShadow: tier === 'RAINBOW' ? outline : 'none' }}>{tier}</span>
+              </button>
+              {count > 0 && <button type="button" onClick={() => add(name)} aria-label={`Add another ${tier} ${name}`} title="Add another copy" style={{ marginRight: 8, border: `1px solid ${theme.keepFg}`, borderRadius: 6, background: theme.keepBg, color: theme.keepFg, fontWeight: 800, cursor: 'pointer' }}>+</button>}
+            </div>;
+          })}
+          {matches.length === 0 && <div style={{ padding: '18px 13px', textAlign: 'center', fontSize: 12, color: theme.textMuted }}>{type === 'Protocol' ? 'No Protocol droids are in the current catalog.' : 'No matching droids.'}</div>}
+        </div>
       </section>
 
       <section style={card}>
